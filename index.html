@@ -1,0 +1,3703 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#050508">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Doom's Fitness">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="description" content="Doom's Fitness – forged in iron, powered by science. Your personalised weekly training plan for running, gym & sports.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2300ff41'/%3E%3Cstop offset='100%25' stop-color='%23d4af37'/%3E%3C/linearGradient%3E%3CradialGradient id='m' cx='50%25' cy='40%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%231a1a2e'/%3E%3Cstop offset='100%25' stop-color='%23050508'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='48' fill='url(%23m)' stroke='%2300ff41' stroke-width='2'/%3E%3Cpath d='M32 42 L50 28 L68 42 L62 70 L38 70Z' fill='none' stroke='url(%23g)' stroke-width='3' stroke-linejoin='round'/%3E%3Ccircle cx='40' cy='48' r='4' fill='%2300ff41'/%3E%3Ccircle cx='60' cy='48' r='4' fill='%2300ff41'/%3E%3Cpath d='M42 60 L50 56 L58 60' stroke='%23d4af37' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%23050508'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2300ff41'/%3E%3Cstop offset='100%25' stop-color='%23d4af37'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M55 72 L90 45 L125 72 L115 135 L65 135Z' fill='none' stroke='url(%23g)' stroke-width='5' stroke-linejoin='round'/%3E%3Ccircle cx='75' cy='85' r='7' fill='%2300ff41'/%3E%3Ccircle cx='105' cy='85' r='7' fill='%2300ff41'/%3E%3Cpath d='M78 110 L90 104 L102 110' stroke='%23d4af37' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+<title>Doom's Fitness</title>
+<style>
+/* ========== DOOM'S DESIGN SYSTEM ========== */
+:root {
+  /* Doom Palette — Metallic Green + Steel + Gold */
+  --accent: #00ff41;
+  --accent-rgb: 0,255,65;
+  --accent2: #d4af37;
+  --accent2-rgb: 212,175,55;
+  --accent3: #00cc33;
+  --accent3-rgb: 0,204,51;
+  --warn: #d4af37;
+  --danger: #ff3333;
+  --danger-rgb: 255,51,51;
+  --steel: #8892a0;
+  --steel-rgb: 136,146,160;
+
+  /* Spacing */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px; --s6: 24px; --s7: 32px; --s8: 48px;
+  --radius: 14px;
+  --radius-sm: 8px;
+  --radius-xs: 5px;
+
+  /* Nav */
+  --nav-h: 72px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  /* Transitions */
+  --ease: cubic-bezier(.4,0,.2,1);
+  --t-fast: 150ms;
+  --t-med: 250ms;
+  --t-slow: 400ms;
+
+  /* Doom Glow */
+  --glow: 0 0 20px rgba(0,255,65,0.15);
+  --glow-strong: 0 0 30px rgba(0,255,65,0.25), 0 0 60px rgba(0,255,65,0.08);
+  --glow-gold: 0 0 20px rgba(212,175,55,0.2);
+}
+
+/* Dark theme (default) — Latverian Fortress */
+[data-theme="dark"] {
+  --bg: #050508;
+  --bg2: #0a0a10;
+  --bg3: #111118;
+  --bg4: #1a1a24;
+  --surface: #0d0d15;
+  --surface2: #131320;
+  --surface-hover: #181828;
+  --border: rgba(0,255,65,0.06);
+  --border2: rgba(0,255,65,0.12);
+  --text: #e8e8f0;
+  --text2: #8892a0;
+  --text3: #555568;
+  --glass: rgba(10,10,18,0.92);
+  --glass-border: rgba(0,255,65,0.08);
+  --shadow: 0 4px 24px rgba(0,0,0,0.6);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.7);
+  --theme-color: #050508;
+}
+
+/* Light theme — Vibranium Protocol */
+[data-theme="light"] {
+  --bg: #f0f2f0;
+  --bg2: #e4e8e4;
+  --bg3: #d4dad4;
+  --bg4: #c4ccc4;
+  --surface: #f8faf8;
+  --surface2: #eef2ee;
+  --surface-hover: #e2e8e2;
+  --border: rgba(0,60,20,0.08);
+  --border2: rgba(0,60,20,0.15);
+  --text: #0a1a0e;
+  --text2: #3a4a3e;
+  --text3: #6a7a6e;
+  --glass: rgba(240,242,240,0.92);
+  --glass-border: rgba(0,60,20,0.06);
+  --shadow: 0 4px 24px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+  --theme-color: #f0f2f0;
+}
+
+/* ========== RESET & BASE ========== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; -webkit-tap-highlight-color: transparent; }
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+/* Animated background grid */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: -1;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(0,255,65,0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(212,175,55,0.02) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(0,255,65,0.02) 0%, transparent 40%);
+  pointer-events: none;
+}
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: -1;
+  background-image:
+    linear-gradient(rgba(0,255,65,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,65,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  opacity: 0.5;
+}
+button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+input, select, textarea { font: inherit; color: var(--text); background: var(--bg3); border: 1.5px solid var(--border2); border-radius: var(--radius-sm); padding: 14px 16px; width: 100%; transition: border-color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease); }
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(var(--accent-rgb),0.15); }
+select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+a { color: var(--accent); text-decoration: none; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--bg4); border-radius: 4px; }
+
+/* ========== UTILITY CLASSES ========== */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+.flex { display: flex; }
+.flex-col { display: flex; flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-1 { gap: var(--s1); }
+.gap-2 { gap: var(--s2); }
+.gap-3 { gap: var(--s3); }
+.gap-4 { gap: var(--s4); }
+.text-center { text-align: center; }
+.font-bold { font-weight: 700; }
+.text-sm { font-size: 0.8125rem; }
+.text-xs { font-size: 0.75rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+.text-accent { color: var(--accent); }
+.text-muted { color: var(--text2); }
+.text-dim { color: var(--text3); }
+.text-warn { color: var(--warn); }
+.text-danger { color: var(--danger); }
+.text-success { color: var(--accent3); }
+.mt-2 { margin-top: var(--s2); }
+.mt-3 { margin-top: var(--s3); }
+.mt-4 { margin-top: var(--s4); }
+.mb-2 { margin-bottom: var(--s2); }
+.mb-4 { margin-bottom: var(--s4); }
+.w-full { width: 100%; }
+
+/* ========== CARD — Doom Armor Panels ========== */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--s5);
+  box-shadow: var(--shadow);
+  transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,255,65,0.2), transparent);
+}
+.card:hover { box-shadow: var(--shadow-lg), var(--glow); border-color: rgba(var(--accent-rgb),0.15); }
+.card-header { font-size: 1.05rem; font-weight: 700; margin-bottom: var(--s3); display: flex; align-items: center; gap: var(--s2); font-family: 'Orbitron', sans-serif; letter-spacing: 0.3px; }
+.card-header .icon { font-size: 1.25rem; }
+
+/* ========== BUTTONS ========== */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--s2);
+  padding: 14px 24px;
+  border-radius: var(--radius-sm);
+  font-weight: 600; font-size: 0.9375rem;
+  transition: all var(--t-fast) var(--ease);
+  min-height: 48px; /* accessibility tap target */
+  position: relative;
+  overflow: hidden;
+}
+.btn::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(255,255,255,0.1);
+  opacity: 0;
+  transition: opacity var(--t-fast) var(--ease);
+}
+.btn:active::after { opacity: 1; }
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), #00cc33, var(--accent2));
+  background-size: 200% 200%;
+  color: #000;
+  font-weight: 800;
+  box-shadow: 0 4px 16px rgba(var(--accent-rgb),0.3), var(--glow);
+  text-shadow: 0 0 10px rgba(0,0,0,0.3);
+  letter-spacing: 0.5px;
+}
+.btn-primary:hover { box-shadow: 0 6px 24px rgba(var(--accent-rgb),0.45), var(--glow-strong); transform: translateY(-1px); background-position: 100% 0; }
+.btn-secondary {
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+}
+.btn-secondary:hover { background: var(--bg4); }
+.btn-success {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(var(--accent3-rgb),0.3);
+}
+.btn-danger {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(var(--danger-rgb),0.2);
+}
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+}
+.btn-outline:hover { background: rgba(var(--accent-rgb),0.1); }
+.btn-sm { padding: 8px 16px; font-size: 0.8125rem; min-height: 36px; border-radius: var(--radius-xs); }
+.btn-lg { padding: 16px 32px; font-size: 1rem; }
+.btn-block { width: 100%; }
+.btn:disabled { opacity: 0.4; pointer-events: none; }
+.btn-icon {
+  width: 44px; height: 44px; padding: 0;
+  border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+}
+
+/* ========== TAGS / CHIPS ========== */
+.chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 0.8125rem; font-weight: 500;
+  background: var(--bg3);
+  border: 1.5px solid var(--border2);
+  cursor: pointer;
+  transition: all var(--t-fast) var(--ease);
+  min-height: 40px;
+  user-select: none;
+}
+.chip:hover { background: var(--bg4); }
+.chip.active {
+  background: rgba(var(--accent-rgb),0.12);
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 12px rgba(var(--accent-rgb),0.15), inset 0 0 12px rgba(var(--accent-rgb),0.05);
+}
+.chip-grid { display: flex; flex-wrap: wrap; gap: var(--s2); }
+
+/* ========== BADGE ========== */
+.badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 0.6875rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+.badge-accent { background: rgba(var(--accent-rgb),0.15); color: var(--accent); }
+.badge-success { background: rgba(var(--accent3-rgb),0.15); color: var(--accent3); }
+.badge-warn { background: rgba(245,158,11,0.15); color: var(--warn); }
+.badge-danger { background: rgba(var(--danger-rgb),0.15); color: var(--danger); }
+
+/* ========== FORM GROUP ========== */
+.form-group { margin-bottom: var(--s4); }
+.form-group label { display: block; font-size: 0.8125rem; font-weight: 600; color: var(--text2); margin-bottom: var(--s2); text-transform: uppercase; letter-spacing: 0.5px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3); }
+.form-hint { font-size: 0.75rem; color: var(--text3); margin-top: var(--s1); }
+.input-group { position: relative; }
+.input-suffix { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--text3); font-size: 0.8125rem; pointer-events: none; }
+
+/* ========== PROGRESS BAR ========== */
+.progress-bar {
+  height: 4px;
+  background: var(--bg3);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: var(--s6);
+}
+.progress-bar .fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 4px;
+  transition: width var(--t-slow) var(--ease);
+  box-shadow: 0 0 8px rgba(var(--accent-rgb),0.4);
+}
+
+/* ========== BOTTOM NAV ========== */
+.bottom-nav {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  height: calc(var(--nav-h) + var(--safe-bottom));
+  padding-bottom: var(--safe-bottom);
+  background: var(--glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-top: 1px solid var(--glass-border);
+  display: flex;
+  z-index: 100;
+}
+.nav-btn {
+  flex: 1;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 2px;
+  font-size: 0.625rem; font-weight: 600;
+  color: var(--text3);
+  transition: color var(--t-fast) var(--ease);
+  min-height: 48px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+.nav-btn.active { color: var(--accent); text-shadow: 0 0 12px rgba(var(--accent-rgb),0.5); }
+.nav-btn.active::before {
+  content: '';
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 32px; height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 0 0 3px 3px;
+  box-shadow: 0 2px 12px rgba(var(--accent-rgb),0.4);
+}
+.nav-btn svg { width: 22px; height: 22px; }
+.nav-badge {
+  position: absolute; top: 6px; right: calc(50% - 18px);
+  width: 8px; height: 8px;
+  background: var(--danger);
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+}
+
+/* ========== SCREEN CONTAINER ========== */
+.screen {
+  display: none;
+  padding: var(--s4);
+  padding-top: calc(var(--s6) + env(safe-area-inset-top, 0px));
+  padding-bottom: 150px;
+  min-height: 100dvh;
+  animation: fadeIn var(--t-med) var(--ease);
+}
+.screen.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ========== WIZARD ========== */
+.wizard-container {
+  max-width: 480px;
+  margin: 0 auto;
+}
+.wizard-step { display: none; animation: slideIn var(--t-med) var(--ease); }
+.wizard-step.active { display: block; }
+@keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+.wizard-title {
+  font-size: 1.375rem;
+  font-weight: 800;
+  margin-bottom: var(--s1);
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 0.5px;
+}
+.wizard-subtitle { color: var(--text2); margin-bottom: var(--s6); font-size: 0.875rem; }
+.wizard-nav { display: flex; gap: var(--s3); margin-top: var(--s6); }
+.wizard-nav .btn { flex: 1; }
+.wizard-step-indicator {
+  display: flex; justify-content: center; gap: var(--s2); margin-bottom: var(--s4);
+}
+.step-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--bg4);
+  transition: all var(--t-med) var(--ease);
+}
+.step-dot.active { background: var(--accent); width: 24px; border-radius: 4px; box-shadow: 0 0 8px rgba(var(--accent-rgb),0.5); }
+.step-dot.done { background: var(--accent3); box-shadow: 0 0 6px rgba(var(--accent3-rgb),0.4); }
+
+/* Calculated stats display */
+.calc-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s3);
+  margin-top: var(--s4);
+  padding: var(--s4);
+  background: var(--bg3);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+.calc-stat { text-align: center; }
+.calc-stat .value { font-size: 1.25rem; font-weight: 800; color: var(--accent); }
+.calc-stat .label { font-size: 0.6875rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+
+/* ========== SCHEDULE DAY CARD ========== */
+.day-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--s4);
+  margin-bottom: var(--s3);
+  transition: all var(--t-fast) var(--ease);
+}
+.day-card.today { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 4px 20px rgba(var(--accent-rgb),0.15), var(--glow); }
+.day-card.completed { border-color: var(--accent3); opacity: 0.85; }
+.day-card.skipped { border-color: var(--danger); opacity: 0.6; }
+.day-card-header {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--s3);
+}
+.day-name { font-weight: 700; font-size: 0.9375rem; }
+.day-type {
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.type-run { background: rgba(0,255,65,0.1); color: var(--accent); }
+.type-gym { background: rgba(212,175,55,0.1); color: var(--accent2); }
+.type-sport { background: rgba(0,204,51,0.1); color: var(--accent3); }
+.type-rest { background: rgba(136,146,160,0.08); color: var(--text3); }
+.type-recovery { background: rgba(212,175,55,0.08); color: var(--warn); }
+.type-runandgym { background: linear-gradient(90deg, rgba(0,255,65,0.1), rgba(212,175,55,0.1)); color: var(--accent); }
+
+.day-detail { font-size: 0.8125rem; color: var(--text2); line-height: 1.6; }
+.day-detail .session-title { font-weight: 700; color: var(--text); font-size: 0.9375rem; margin-bottom: var(--s1); }
+.day-why {
+  font-size: 0.75rem; color: var(--text3); font-style: italic;
+  margin-top: var(--s2);
+  padding-top: var(--s2);
+  border-top: 1px solid var(--border);
+}
+
+/* ========== SESSION DETAIL VIEW ========== */
+.session-block {
+  background: var(--bg3);
+  border-radius: var(--radius-sm);
+  padding: var(--s3);
+  margin-bottom: var(--s3);
+}
+.session-block-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text3); margin-bottom: var(--s2); }
+
+.exercise-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--s3) 0;
+  border-bottom: 1px solid var(--border);
+}
+.exercise-row:last-child { border-bottom: none; }
+.exercise-name { font-weight: 600; font-size: 0.875rem; }
+.exercise-sets { font-size: 0.8125rem; color: var(--text2); }
+.exercise-cue { font-size: 0.6875rem; color: var(--text3); font-style: italic; margin-top: 2px; }
+.exercise-meta { display: flex; gap: var(--s2); flex-wrap: wrap; margin-top: 4px; }
+.exercise-meta span { font-size: 0.6875rem; padding: 2px 8px; background: var(--bg4); border-radius: 100px; color: var(--text2); }
+
+/* ========== RUN SESSION ========== */
+.pace-zone {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 0.6875rem; font-weight: 600;
+}
+.zone-easy { background: rgba(0,255,65,0.1); color: #00ff41; }
+.zone-marathon { background: rgba(0,160,200,0.1); color: #00a0c8; }
+.zone-threshold { background: rgba(212,175,55,0.1); color: #d4af37; }
+.zone-interval { background: rgba(255,51,51,0.1); color: #ff3333; }
+.zone-rep { background: rgba(180,120,255,0.1); color: #b478ff; }
+
+/* ========== READINESS CHECK ========== */
+.readiness-modal {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.7);
+  display: none; align-items: center; justify-content: center;
+  padding: var(--s4);
+  backdrop-filter: blur(8px);
+}
+.readiness-modal.show { display: flex; }
+.readiness-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: var(--s6);
+  width: 100%;
+  max-width: 400px;
+  box-shadow: var(--shadow-lg);
+  animation: scaleIn var(--t-med) var(--ease);
+}
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }
+
+.slider-group { margin-bottom: var(--s5); }
+.slider-group label { display: flex; justify-content: space-between; align-items: center; font-size: 0.8125rem; font-weight: 600; margin-bottom: var(--s2); }
+.slider-group label span:last-child { color: var(--accent); font-size: 1rem; }
+input[type="range"] {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 6px;
+  background: var(--bg3); border: none;
+  border-radius: 3px; padding: 0;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  box-shadow: 0 2px 8px rgba(var(--accent-rgb),0.4), 0 0 12px rgba(var(--accent-rgb),0.2);
+  cursor: pointer;
+  border: 2px solid rgba(0,0,0,0.3);
+}
+input[type="range"]:focus { box-shadow: none; }
+
+/* ========== LOG MODAL ========== */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  display: none; align-items: flex-end; justify-content: center;
+}
+.modal-overlay.show { display: flex; }
+.modal-sheet {
+  background: var(--surface);
+  border-radius: var(--radius) var(--radius) 0 0;
+  padding: var(--s6);
+  width: 100%;
+  max-width: 480px;
+  max-height: 85dvh;
+  overflow-y: auto;
+  animation: slideUp var(--t-med) var(--ease);
+}
+@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+.modal-handle {
+  width: 40px; height: 4px;
+  background: var(--bg4);
+  border-radius: 2px;
+  margin: 0 auto var(--s5);
+}
+
+/* ========== PROGRESS CHARTS ========== */
+.chart-container {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--s4);
+  margin-bottom: var(--s3);
+}
+.chart-title { font-size: 0.875rem; font-weight: 700; margin-bottom: var(--s3); }
+.mini-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 80px;
+}
+.mini-bar {
+  flex: 1;
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(to top, var(--accent), rgba(var(--accent-rgb),0.4));
+  min-height: 4px;
+  transition: height var(--t-slow) var(--ease);
+  position: relative;
+}
+.mini-bar:hover::after {
+  content: attr(data-val);
+  position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%);
+  background: var(--bg4);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.625rem;
+  white-space: nowrap;
+}
+
+/* Stats grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s3);
+  margin-bottom: var(--s4);
+}
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--s4);
+  text-align: center;
+}
+.stat-value { font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-family: 'Orbitron', sans-serif; }
+.stat-label { font-size: 0.6875rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+
+/* ========== BADGE DISPLAY ========== */
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s3);
+}
+.badge-card {
+  text-align: center;
+  padding: var(--s3);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.badge-card.locked { opacity: 0.35; filter: grayscale(1); }
+.badge-icon { font-size: 2rem; margin-bottom: var(--s1); }
+.badge-name { font-size: 0.6875rem; font-weight: 600; }
+
+/* ========== TOGGLE ========== */
+.toggle-wrap { display: flex; align-items: center; justify-content: space-between; padding: var(--s3) 0; }
+.toggle {
+  width: 48px; height: 28px;
+  background: var(--bg4);
+  border-radius: 14px;
+  padding: 2px;
+  cursor: pointer;
+  transition: background var(--t-fast) var(--ease);
+  position: relative;
+}
+.toggle.on { background: var(--accent); }
+.toggle .knob {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  transition: transform var(--t-fast) var(--ease);
+}
+.toggle.on .knob { transform: translateX(20px); }
+
+/* ========== MISSED SESSION MODAL ========== */
+.reason-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s2); margin: var(--s4) 0; }
+.reason-btn {
+  padding: var(--s4);
+  border-radius: var(--radius-sm);
+  background: var(--bg3);
+  border: 1.5px solid var(--border2);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-align: center;
+  transition: all var(--t-fast) var(--ease);
+  min-height: 56px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+}
+.reason-btn:hover, .reason-btn.selected { border-color: var(--accent); background: rgba(var(--accent-rgb),0.1); }
+.reason-btn .reason-icon { font-size: 1.5rem; }
+
+/* ========== THEME TOGGLE ========== */
+.theme-toggle {
+  position: fixed; top: calc(env(safe-area-inset-top, 0px) + 12px); right: 12px;
+  z-index: 50;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform var(--t-fast) var(--ease);
+}
+.theme-toggle:active { transform: scale(0.9); }
+
+/* ========== SECTION HEADERS ========== */
+.section-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: var(--s4);
+}
+.section-title { font-size: 1.25rem; font-weight: 800; font-family: 'Orbitron', sans-serif; letter-spacing: 0.5px; }
+
+/* ========== WEEK VIEW ========== */
+.week-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: var(--s4);
+  padding: var(--s3) 0;
+}
+.week-nav { display: flex; gap: var(--s2); }
+
+/* ========== TOAST ========== */
+.toast {
+  position: fixed; bottom: calc(var(--nav-h) + var(--safe-bottom) + 12px); left: 50%; transform: translateX(-50%) translateY(120px);
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-sm);
+  padding: var(--s3) var(--s5);
+  font-size: 0.875rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-lg);
+  z-index: 300;
+  transition: transform var(--t-med) var(--ease);
+  pointer-events: none;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* ========== WARNING BOX ========== */
+.warning-box {
+  background: rgba(245,158,11,0.08);
+  border: 1px solid rgba(245,158,11,0.2);
+  border-radius: var(--radius-sm);
+  padding: var(--s3) var(--s4);
+  font-size: 0.8125rem;
+  color: var(--warn);
+  margin: var(--s3) 0;
+  display: flex; align-items: flex-start; gap: var(--s2);
+}
+.danger-box {
+  background: rgba(239,68,68,0.08);
+  border: 1px solid rgba(239,68,68,0.2);
+  border-radius: var(--radius-sm);
+  padding: var(--s3) var(--s4);
+  font-size: 0.8125rem;
+  color: var(--danger);
+  margin: var(--s3) 0;
+  display: flex; align-items: flex-start; gap: var(--s2);
+}
+
+/* ========== EXPANDABLE ========== */
+.expandable { cursor: pointer; }
+.expandable-content { max-height: 0; overflow: hidden; transition: max-height var(--t-med) var(--ease); }
+.expandable.open .expandable-content { max-height: 2000px; }
+.expand-icon { transition: transform var(--t-fast) var(--ease); font-size: 0.75rem; }
+.expandable.open .expand-icon { transform: rotate(180deg); }
+
+/* ========== LOADING SCREEN ========== */
+.loading-screen {
+  position: fixed; inset: 0; z-index: 999;
+  background: var(--bg);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: var(--s4);
+}
+.loading-screen .spinner {
+  width: 40px; height: 40px;
+  border: 3px solid var(--bg3);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ========== EMPTY STATE ========== */
+.empty-state {
+  text-align: center;
+  padding: var(--s8) var(--s4);
+}
+.empty-state .icon { font-size: 3rem; margin-bottom: var(--s4); }
+.empty-state .title { font-size: 1.125rem; font-weight: 700; margin-bottom: var(--s2); }
+.empty-state .desc { color: var(--text2); font-size: 0.875rem; max-width: 280px; margin: 0 auto; }
+
+/* ========== MISC ========== */
+.divider { height: 1px; background: var(--border); margin: var(--s4) 0; }
+.scroll-fade { mask-image: linear-gradient(to bottom, black 90%, transparent); }
+
+/* ========== SWAP MODAL ========== */
+.swap-list { max-height: 300px; overflow-y: auto; }
+.swap-item {
+  padding: var(--s3);
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  transition: background var(--t-fast) var(--ease);
+  border-bottom: 1px solid var(--border);
+}
+.swap-item:hover { background: var(--bg3); }
+.swap-item-name { font-weight: 600; font-size: 0.875rem; }
+.swap-item-detail { font-size: 0.75rem; color: var(--text3); }
+
+/* ========== DAY COMMITMENT TAG ========== */
+.commitment-tag {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 0.6875rem;
+  background: rgba(var(--accent2-rgb),0.12);
+  color: var(--accent2);
+  font-weight: 600;
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+.animate-pulse { animation: pulse 2s var(--ease) infinite; }
+
+@keyframes confetti-pop {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.confetti-pop { animation: confetti-pop 0.5s var(--ease); }
+
+/* ========== RESPONSIVE ========== */
+@media (min-width: 640px) {
+  .screen { padding: var(--s6) var(--s7); max-width: 600px; margin: 0 auto; }
+  .form-row { grid-template-columns: 1fr 1fr 1fr; }
+  .stats-grid { grid-template-columns: repeat(4, 1fr); }
+  .badges-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ========== SET LOGGING TABLE ========== */
+.set-table { width: 100%; font-size: 0.8125rem; }
+.set-table th { text-align: left; font-weight: 600; color: var(--text3); padding: var(--s2) var(--s1); font-size: 0.6875rem; text-transform: uppercase; }
+.set-table td { padding: var(--s2) var(--s1); }
+.set-table input { padding: 8px 10px; font-size: 0.8125rem; width: 100%; min-width: 50px; text-align: center; }
+.set-table tr { border-bottom: 1px solid var(--border); }
+
+/* ========== PLAN GENERATION LOADING ========== */
+.plan-loading {
+  text-align: center;
+  padding: var(--s8);
+}
+.plan-loading .big-icon { font-size: 3rem; margin-bottom: var(--s4); animation: pulse 1.5s ease infinite; }
+.plan-loading-bar {
+  height: 6px;
+  background: var(--bg3);
+  border-radius: 3px;
+  overflow: hidden;
+  max-width: 240px;
+  margin: var(--s4) auto 0;
+}
+.plan-loading-bar .fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent));
+  background-size: 200% 100%;
+  border-radius: 3px;
+  animation: shimmer 1.5s ease infinite;
+  box-shadow: 0 0 12px rgba(var(--accent-rgb),0.4);
+}
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+/* ========== DOOM SPECIAL EFFECTS ========== */
+.doom-glow { text-shadow: 0 0 10px rgba(var(--accent-rgb),0.5), 0 0 20px rgba(var(--accent-rgb),0.2); }
+.doom-border { border-image: linear-gradient(135deg, var(--accent), var(--accent2)) 1; }
+.metallic-text {
+  background: linear-gradient(180deg, #e8e8e8 0%, #8892a0 40%, #e8e8e8 60%, #8892a0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Doom Logo Animation */
+@keyframes doomPulse {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(0,255,65,0.3)); }
+  50% { filter: drop-shadow(0 0 20px rgba(0,255,65,0.6)); }
+}
+.doom-logo { animation: doomPulse 3s ease-in-out infinite; }
+
+/* Corner decorations for cards */
+.card-corner::after {
+  content: '';
+  position: absolute; top: -1px; right: -1px;
+  width: 20px; height: 20px;
+  border-top: 2px solid var(--accent);
+  border-right: 2px solid var(--accent);
+  border-radius: 0 var(--radius) 0 0;
+  opacity: 0.4;
+}
+.card-corner::before {
+  content: '';
+  position: absolute; bottom: -1px; left: -1px;
+  width: 20px; height: 20px;
+  border-bottom: 2px solid var(--accent2);
+  border-left: 2px solid var(--accent2);
+  border-radius: 0 0 0 var(--radius);
+  opacity: 0.3;
+}
+
+/* Weight log inline */
+.weight-log-entry { display: flex; align-items: center; gap: var(--s3); padding: var(--s2) 0; border-bottom: 1px solid var(--border); }
+.weight-log-entry:last-child { border-bottom: none; }
+
+/* VIEW TRANSITIONS */
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.3s; }
+
+/* 3D TILT */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+}
+.tilt-card > * { transform: translateZ(20px); }
+
+/* REST TIMER */
+#restTimer {
+  position: fixed; bottom: calc(var(--nav-h) + 20px); left: 50%; transform: translateX(-50%);
+  background: var(--glass); backdrop-filter: blur(12px); border: 1px solid var(--border);
+  padding: 10px 20px; border-radius: 30px; box-shadow: var(--shadow-lg), var(--glow);
+  display: none; align-items: center; gap: 15px; z-index: 1000;
+  font-family: 'Orbitron', sans-serif; font-weight: bold; color: var(--accent);
+}
+#restTimer.active { display: flex; animation: slideUp 0.3s var(--ease); }
+@keyframes slideUp { from { transform: translate(-50%, 20px); opacity: 0; } }
+
+/* XP BAR & BADGES */
+.xp-bar-container { background: var(--bg4); height: 8px; border-radius: 4px; overflow: hidden; margin-top: 8px; position: relative; }
+.xp-bar-fill { background: var(--accent); height: 100%; width: 0%; box-shadow: var(--glow); transition: width 1s ease-out; }
+.doom-coach-text { font-family: 'Orbitron', sans-serif; color: var(--accent2); font-style: italic; border-left: 2px solid var(--accent2); padding-left: 10px; margin-top: 10px; font-size: 0.9rem; }
+
+/* SVG PROGRESS RING */
+.progress-ring-circle { transition: stroke-dashoffset 1s ease-out; transform: rotate(-90deg); transform-origin: 50% 50%; }
+
+/* HEATMAP */
+.heatmap { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-top: 10px; }
+.heatmap-cell { aspect-ratio: 1; border-radius: 4px; background: var(--bg4); transition: transform 0.2s; }
+.heatmap-cell:hover { transform: scale(1.2); z-index: 2; position: relative; }
+.heatmap-cell.active-1 { background: rgba(var(--accent-rgb), 0.3); }
+.heatmap-cell.active-2 { background: rgba(var(--accent-rgb), 0.6); }
+.heatmap-cell.active-3 { background: rgba(var(--accent-rgb), 1); box-shadow: var(--glow); }
+
+/* PWA INSTALL */
+#installPrompt {
+  position: fixed; top: 0; left: 0; right: 0; background: var(--accent); color: #000;
+  padding: 12px 20px; display: none; justify-content: space-between; align-items: center;
+  z-index: 2000; font-family: 'Orbitron', sans-serif; font-weight: bold;
+}
+</style>
+
+</head>
+<body>
+
+<!-- THEME TOGGLE -->
+<button class="theme-toggle" onclick="FP.toggleTheme()" aria-label="Toggle theme">🌙</button>
+
+<!-- TOAST -->
+<div id="toast" class="toast"></div>
+
+<!-- ========== READINESS CHECK MODAL ========== -->
+<div id="readinessModal" class="readiness-modal">
+  <div class="readiness-card">
+    <h3 style="font-size:1.125rem;font-weight:800;margin-bottom:var(--s5);text-align:center;">⚡ Quick Readiness Check</h3>
+    <div class="slider-group">
+      <label>Sleep Quality <span id="sleepVal">7</span></label>
+      <input type="range" min="0" max="10" value="7" id="readSleep" oninput="document.getElementById('sleepVal').textContent=this.value">
+    </div>
+    <div class="slider-group">
+      <label>Muscle Soreness <span id="soreVal">3</span></label>
+      <input type="range" min="0" max="10" value="3" id="readSore" oninput="document.getElementById('soreVal').textContent=this.value">
+    </div>
+    <div class="slider-group">
+      <label>Energy Level <span id="energyVal">7</span></label>
+      <input type="range" min="0" max="10" value="7" id="readEnergy" oninput="document.getElementById('energyVal').textContent=this.value">
+    </div>
+    <div class="slider-group">
+      <label>Pain / Injury <span id="painVal">0</span></label>
+      <input type="range" min="0" max="10" value="0" id="readPain" oninput="document.getElementById('painVal').textContent=this.value">
+    </div>
+    <div id="readinessWarning" class="danger-box" style="display:none;">⚠️ Pain level is high. Consider rest or recovery today.</div>
+    <button class="btn btn-primary btn-block" onclick="FP.submitReadiness()">Start Session</button>
+    <button class="btn btn-secondary btn-block mt-3" onclick="FP.closeReadiness()">Skip Check</button>
+  </div>
+</div>
+
+<!-- ========== MISSED SESSION MODAL ========== -->
+<div id="missedModal" class="modal-overlay">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <h3 style="font-size:1.125rem;font-weight:800;margin-bottom:var(--s2);">📋 Missed Session</h3>
+    <p class="text-muted text-sm mb-4" id="missedSessionName">You missed yesterday's session.</p>
+    <p class="text-sm font-bold mb-2">What happened?</p>
+    <div class="reason-grid">
+      <button class="reason-btn" data-reason="busy" onclick="FP.selectMissedReason(this)"><span class="reason-icon">📅</span>Busy</button>
+      <button class="reason-btn" data-reason="tired" onclick="FP.selectMissedReason(this)"><span class="reason-icon">😴</span>Tired</button>
+      <button class="reason-btn" data-reason="sick" onclick="FP.selectMissedReason(this)"><span class="reason-icon">🤒</span>Sick</button>
+      <button class="reason-btn" data-reason="injured" onclick="FP.selectMissedReason(this)"><span class="reason-icon">🤕</span>Injured</button>
+      <button class="reason-btn" data-reason="travel" onclick="FP.selectMissedReason(this)"><span class="reason-icon">✈️</span>Travel</button>
+      <button class="reason-btn" data-reason="other" onclick="FP.selectMissedReason(this)"><span class="reason-icon">🤷</span>Other</button>
+    </div>
+    <button class="btn btn-primary btn-block" id="missedSubmitBtn" onclick="FP.submitMissedReason()" disabled>Reschedule Week</button>
+  </div>
+</div>
+
+<!-- ========== LOG MODAL ========== -->
+<div id="logModal" class="modal-overlay">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div id="logModalContent"></div>
+  </div>
+</div>
+
+<!-- ========== SWAP EXERCISE MODAL ========== -->
+<div id="swapModal" class="modal-overlay">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <h3 style="font-size:1.125rem;font-weight:800;margin-bottom:var(--s4);">🔄 Swap Exercise</h3>
+    <div id="swapList" class="swap-list"></div>
+    <button class="btn btn-secondary btn-block mt-3" onclick="FP.closeSwapModal()">Cancel</button>
+  </div>
+</div>
+
+<!-- ========== BOTTOM NAVIGATION ========== -->
+<nav class="bottom-nav" id="bottomNav" style="display:none;">
+  <button class="nav-btn active" data-tab="today" onclick="FP.switchTab('today')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Today
+  </button>
+  <button class="nav-btn" data-tab="week" onclick="FP.switchTab('week')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    Week
+  </button>
+  <button class="nav-btn" data-tab="progress" onclick="FP.switchTab('progress')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+    Progress
+  </button>
+  <button class="nav-btn" data-tab="plan" onclick="FP.switchTab('plan')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    Plan
+  </button>
+  <button class="nav-btn" data-tab="profile" onclick="FP.switchTab('profile')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    Profile
+  </button>
+</nav>
+
+<!-- ========== SCREENS ========== -->
+
+<!-- WIZARD SCREEN (no bottom nav) -->
+<div class="screen active" id="screen-wizard">
+  <div class="wizard-container">
+    <div style="text-align:center;margin-bottom:var(--s6);">
+      <div class="doom-logo" style="font-size:3rem;margin-bottom:var(--s3);line-height:1;">🎭</div>
+      <h1 style="font-size:1.625rem;font-weight:900;font-family:'Orbitron',sans-serif;background:linear-gradient(135deg,var(--accent),#00cc33,var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:2px;text-transform:uppercase;">Doom's Fitness</h1>
+      <p class="text-muted text-sm" style="letter-spacing:1px;margin-top:var(--s1);">FORGED IN IRON · POWERED BY SCIENCE</p>
+      <div style="width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);margin:var(--s3) auto 0;"></div>
+    </div>
+
+    <div class="progress-bar"><div class="fill" id="wizardProgress" style="width:12.5%"></div></div>
+    <div class="wizard-step-indicator" id="wizardDots"></div>
+
+    <!-- STEP 1: Body Stats -->
+    <div class="wizard-step active" data-step="1">
+      <div class="wizard-title">📊 Body Stats</div>
+      <div class="wizard-subtitle">Let's start with the basics to calculate your metabolic profile.</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="w-age">Age</label>
+          <div class="input-group">
+            <input type="number" id="w-age" min="13" max="80" placeholder="25" inputmode="numeric">
+            <span class="input-suffix">yrs</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="w-sex">Sex</label>
+          <select id="w-sex">
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="w-height">Height</label>
+          <div class="input-group">
+            <input type="number" id="w-height" min="100" max="250" placeholder="175" inputmode="numeric">
+            <span class="input-suffix">cm</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="w-weight">Weight</label>
+          <div class="input-group">
+            <input type="number" id="w-weight" min="30" max="250" placeholder="75" inputmode="decimal">
+            <span class="input-suffix">kg</span>
+          </div>
+        </div>
+      </div>
+      <div class="calc-stats" id="bodyCalcStats" style="display:none;">
+        <div class="calc-stat"><div class="value" id="calcBMI">—</div><div class="label">BMI</div></div>
+        <div class="calc-stat"><div class="value" id="calcCal">—</div><div class="label">Est. Calories</div></div>
+        <div class="calc-stat"><div class="value" id="calcProtein">—</div><div class="label">Protein (g)</div></div>
+      </div>
+      <div class="wizard-nav">
+        <button class="btn btn-primary btn-block" onclick="FP.wizardNext()">Continue →</button>
+      </div>
+    </div>
+
+    <!-- STEP 2: Goal -->
+    <div class="wizard-step" data-step="2">
+      <div class="wizard-title">🎯 Your Goal</div>
+      <div class="wizard-subtitle">What's your primary training objective?</div>
+      <div class="form-group">
+        <label>Primary Goal</label>
+        <div class="chip-grid" id="goalChips">
+          <button class="chip" data-val="fat_loss" onclick="FP.selectChip(this,'goalChips')">🔥 Fat Loss</button>
+          <button class="chip" data-val="muscle_gain" onclick="FP.selectChip(this,'goalChips')">💪 Muscle Gain</button>
+          <button class="chip" data-val="running_pace" onclick="FP.selectChip(this,'goalChips')">🏃 Running Pace</button>
+          <button class="chip" data-val="general_fitness" onclick="FP.selectChip(this,'goalChips')">❤️ General Fitness</button>
+          <button class="chip" data-val="sport_performance" onclick="FP.selectChip(this,'goalChips')">🏆 Sport Performance</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="w-timeframe">Timeframe</label>
+        <div class="input-group">
+          <input type="number" id="w-timeframe" min="4" max="52" value="12" inputmode="numeric">
+          <span class="input-suffix">weeks</span>
+        </div>
+      </div>
+      <div class="wizard-nav">
+        <button class="btn btn-secondary" onclick="FP.wizardPrev()">← Back</button>
+        <button class="btn btn-primary" onclick="FP.wizardNext()">Continue →</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: Experience -->
+    <div class="wizard-step" data-step="3">
+      <div class="wizard-title">🏋️ Experience Level</div>
+      <div class="wizard-subtitle">This helps us set the right starting point and progression.</div>
+      <div class="form-group">
+        <label>Gym Experience</label>
+        <div class="chip-grid" id="gymLevelChips">
+          <button class="chip" data-val="beginner" onclick="FP.selectChip(this,'gymLevelChips')">🌱 Beginner<br><span class="text-xs text-dim">< 6 months</span></button>
+          <button class="chip" data-val="intermediate" onclick="FP.selectChip(this,'gymLevelChips')">⚡ Intermediate<br><span class="text-xs text-dim">6mo – 2 years</span></button>
+          <button class="chip" data-val="advanced" onclick="FP.selectChip(this,'gymLevelChips')">🔥 Advanced<br><span class="text-xs text-dim">2+ years</span></button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Running Experience</label>
+        <div class="chip-grid" id="runLevelChips">
+          <button class="chip" data-val="beginner" onclick="FP.selectChip(this,'runLevelChips')">🌱 Beginner<br><span class="text-xs text-dim">< 6 months</span></button>
+          <button class="chip" data-val="intermediate" onclick="FP.selectChip(this,'runLevelChips')">⚡ Intermediate<br><span class="text-xs text-dim">6mo – 2 years</span></button>
+          <button class="chip" data-val="advanced" onclick="FP.selectChip(this,'runLevelChips')">🔥 Advanced<br><span class="text-xs text-dim">2+ years</span></button>
+        </div>
+      </div>
+      <div class="wizard-nav">
+        <button class="btn btn-secondary" onclick="FP.wizardPrev()">← Back</button>
+        <button class="btn btn-primary" onclick="FP.wizardNext()">Continue →</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: Interests -->
+    <div class="wizard-step" data-step="4">
+      <div class="wizard-title">⚽ Activities & Interests</div>
+      <div class="wizard-subtitle">Select all the activities you'd like in your plan.</div>
+      <div class="chip-grid" id="interestChips">
+        <button class="chip" data-val="running" onclick="FP.toggleChip(this)">🏃 Running</button>
+        <button class="chip" data-val="gym" onclick="FP.toggleChip(this)">🏋️ Gym</button>
+        <button class="chip" data-val="football" onclick="FP.toggleChip(this)">⚽ Football</button>
+        <button class="chip" data-val="cricket" onclick="FP.toggleChip(this)">🏏 Cricket</button>
+        <button class="chip" data-val="badminton" onclick="FP.toggleChip(this)">🏸 Badminton</button>
+        <button class="chip" data-val="basketball" onclick="FP.toggleChip(this)">🏀 Basketball</button>
+        <button class="chip" data-val="swimming" onclick="FP.toggleChip(this)">🏊 Swimming</button>
+        <button class="chip" data-val="cycling" onclick="FP.toggleChip(this)">🚴 Cycling</button>
+        <button class="chip" data-val="yoga" onclick="FP.toggleChip(this)">🧘 Yoga</button>
+      </div>
+      <div class="form-group mt-4">
+        <label for="w-custom-sport">Other Activities</label>
+        <input type="text" id="w-custom-sport" placeholder="e.g., Tennis, Hiking (comma separated)">
+      </div>
+      <div class="wizard-nav">
+        <button class="btn btn-secondary" onclick="FP.wizardPrev()">← Back</button>
+        <button class="btn btn-primary" onclick="FP.wizardNext()">Continue →</button>
+      </div>
+    </div>
+
+    <!-- STEP 5: Running Details -->
+    <div class="wizard-step" data-step="5">
+      <div class="wizard-title">🏃 Running Details</div>
+      <div class="wizard-subtitle">Current fitness helps us calculate your training paces.</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="w-easy-pace">Easy Pace</label>
+          <div class="input-group">
+            <input type="text" id="w-easy-pace" placeholder="6:30" pattern="[0-9]{1,2}:[0-9]{2}">
+            <span class="input-suffix">min/km</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="w-10k-pace">10K Pace</label>
+          <div class="input-group">
+            <input type="text" id="w-10k-pace" placeholder="5:30" pattern="[0-9]{1,2}:[0-9]{2}">
+            <span class="input-suffix">min/km</span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="w-target-pace">Target 10K Pace</label>
+        <div class="input-group">
+          <input type="text" id="w-target-pace" placeholder="5:00" pattern="[0-9]{1,2}:[0-9]{2}">
+          <span class="input-suffix">min/km</span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="w-weekly-km">Weekly KM</label>
+          <div class="input-group">
+            <input type="number" id="w-weekly-km" min="0" max="200" placeholder="25" inputmode="numeric">
+            <span class="input-suffix">km</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="w-longest-run">Longest Run</label>
+          <div class="input-group">
+            <input type="number" id="w-longest-run" min="0" max="50" placeholder="10" inputmode="numeric">
+            <span class="input-suffix">km</span>
+          </div>
+        </div>
+      </div>
+      <div id="paceZonesPreview" style="display:none;" class="mt-4">
+        <div class="card-header">📊 Estimated Pace Zones</div>
+        <div id="paceZonesList"></div>
+      </div>
+      <div class="wizard-nav">
+        <button class="btn btn-secondary" onclick="FP.wizardPrev()">← Back</button>
+        <button class="btn btn-primary" onclick="FP.wizardNext()">Continue →</button>
+      </div>
+    </div>
+
+    <!-- STEP 6: Availability -->
+    <div class="wizard-step" data-step="6">
+      <div class="wizard-title">📅 Availability</div>
+      <div class="wizard-subtitle">When and how long can you train?</div>
+      <div class="form-group">
+        <label for="w-train-days">Training Days per Week</label>
+        <select id="w-train-days">
+          <option value="3">3 days</option>
+          <option value="4">4 days</option>
+          <option value="5" selected>5 days</option>
+          <option value="6">6 days</option>
+          <option value="7">7 days</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Available Days</label>
+        <div class="chip-grid" id="dayChips">
+          <button class="chip active" data-val="mon" onclick="FP.toggleChip(this)">Mon</button>
+          <button class="chip active" data-val="tue" onclick="FP.toggleChip(this)">Tue</button>
+          <button class="chip active" data-val="wed" onclick="FP.toggleChip(this)">Wed</button>
+          <button class="chip active" data-val="thu" onclick="FP.toggleChip(this)">Thu</button>
+          <button class="chip active" data-val="fri" onclick="FP.toggleChip(this)">Fri</button>
+          <button class="chip active" data-val="sat" onclick="FP.toggleChip(this)">Sat</button>
+          <button class="chip active" data-val="sun" onclick="FP.toggleChip(this)">Sun</button>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="w-max-min">Max Session</label>
+          <div class="input-group">
+            <input type="number" id="w-max-min" min="20" max="180" value="60" inputmode="numeric">
+            <span class="input-suffix">min</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="w-pref-time">Preferred Time</label>
+          <select id="w-pref-time">
+            <option value="morning">🌅 Morning</option>
+            <option value="afternoon">☀️ Afternoon</option>
+            <option value="evening" selected>🌙 Evening</option>
+            <option value="flexible">🔄 Flexible</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="w-equipment">Equipment Access</label>
+        <select id="w-equipment">
+          <option value="full_gym">🏢 Full Gym</option>
+          <option value="dumbbells">🏠 Dumbbells Only</option>
+          <option value="bodyweight">🧘 Bodyweight Only</option>
+        </select>
+      </div>
+      <div class="wizard-nav">
+        <button class="btn btn-secondary" onclick="FP.wizardPrev()">← Back</button>
+        <button class="btn btn-primary" onclick="FP.wizardNext()">Continue →</button>
+      </div>
+    </div>
+
+    <!-- STEP 7: Fixed Commitments -->
+    <div class="wizard-step" data-step="7">
+      <div class="wizard-title">📌 Fixed Commitments</div>
+      <div class="wizard-subtitle">Any classes, matches, or practices that must stay in your schedule?</div>
+      <div id="commitmentList"></div>
+      <button class="btn btn-outline btn-sm mt-3" onclick="FP.addCommitment()">+ Add Commitment</button>
+      <div class="form-hint mt-2">These sessions won't be moved or replaced when the plan generates.</div>
+      <div class="wizard-nav">
+        <button class="btn btn-secondary" onclick="FP.wizardPrev()">← Back</button>
+        <button class="btn btn-primary" onclick="FP.wizardNext()">Continue →</button>
+      </div>
+    </div>
+
+    <!-- STEP 8: Preferences -->
+    <div class="wizard-step" data-step="8">
+      <div class="wizard-title">⚙️ Preferences</div>
+      <div class="wizard-subtitle">Fine-tune your plan to match your style.</div>
+      <div class="form-group">
+        <label for="w-split">Gym Split Preference</label>
+        <select id="w-split">
+          <option value="auto">🤖 Auto (recommended)</option>
+          <option value="full_body">🏋️ Full Body</option>
+          <option value="upper_lower">↕️ Upper / Lower</option>
+          <option value="push_pull_legs">💪 Push / Pull / Legs</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="w-dislike">Exercises I Dislike</label>
+        <input type="text" id="w-dislike" placeholder="e.g., Burpees, Lunges (comma separated)">
+        <div class="form-hint">These will be swapped for alternatives when possible.</div>
+      </div>
+      <div class="form-group">
+        <label for="w-injuries">Injuries / Pain Areas</label>
+        <div class="chip-grid" id="injuryChips">
+          <button class="chip" data-val="lower_back" onclick="FP.toggleChip(this)">Lower Back</button>
+          <button class="chip" data-val="knees" onclick="FP.toggleChip(this)">Knees</button>
+          <button class="chip" data-val="shoulders" onclick="FP.toggleChip(this)">Shoulders</button>
+          <button class="chip" data-val="wrists" onclick="FP.toggleChip(this)">Wrists</button>
+          <button class="chip" data-val="ankles" onclick="FP.toggleChip(this)">Ankles</button>
+          <button class="chip" data-val="hips" onclick="FP.toggleChip(this)">Hips</button>
+          <button class="chip" data-val="neck" onclick="FP.toggleChip(this)">Neck</button>
+          <button class="chip" data-val="elbows" onclick="FP.toggleChip(this)">Elbows</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="w-injury-notes">Injury Notes</label>
+        <textarea id="w-injury-notes" rows="2" placeholder="Any specific details about your injuries..."></textarea>
+      </div>
+      <div class="wizard-nav">
+        <button class="btn btn-secondary" onclick="FP.wizardPrev()">← Back</button>
+        <button class="btn btn-primary btn-success" onclick="FP.generatePlan()">🚀 Generate My Plan</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TODAY SCREEN -->
+<div class="screen" id="screen-today">
+  <div class="section-header">
+    <div>
+      <div class="text-sm text-muted" id="todayDate"></div>
+      <div class="section-title" id="todayGreeting">Good evening 👋</div>
+    </div>
+    <div id="streakBadge" class="badge badge-accent" style="display:none;">🔥 <span id="streakCount">0</span> day streak</div>
+  </div>
+  <div id="todayContent"></div>
+</div>
+
+<!-- WEEK SCREEN -->
+<div class="screen" id="screen-week">
+  <div class="week-header">
+    <div>
+      <div class="text-sm text-muted">Week View</div>
+      <div class="section-title" id="weekTitle">Week 1</div>
+    </div>
+    <div class="week-nav">
+      <button class="btn-icon" onclick="FP.prevWeek()">◀</button>
+      <button class="btn-icon" onclick="FP.nextWeek()">▶</button>
+    </div>
+  </div>
+  <div id="weekContent"></div>
+</div>
+
+<!-- PROGRESS SCREEN -->
+<div class="screen" id="screen-progress">
+  <div class="section-header">
+    <div class="section-title">📊 Progress</div>
+  </div>
+  <div id="progressContent"></div>
+</div>
+
+<!-- PLAN SCREEN -->
+<div class="screen" id="screen-plan">
+  <div class="section-header">
+    <div class="section-title">📋 Full Plan</div>
+    <button class="btn btn-sm btn-outline" onclick="FP.regeneratePlan()">🔄 Regenerate</button>
+  </div>
+  <div id="planContent"></div>
+</div>
+
+<!-- PROFILE SCREEN -->
+<div class="screen" id="screen-profile">
+  <div class="section-header">
+    <div class="section-title">👤 Profile</div>
+  </div>
+  <div id="profileContent"></div>
+</div>
+
+<script>
+// ===============================================
+// DOOM'S FITNESS — Complete Training Application
+// Forged in iron, powered by science
+// ===============================================
+
+const FP = (() => {
+  'use strict';
+
+  // ==========================================
+  // STATE
+  // ==========================================
+  let state = {
+    profile: null,
+    plan: null,
+    currentWeek: 0,
+    weekOffset: 0,
+    logs: [],
+    weightLog: [],
+    personalBests: { fastest1k: null, fastest5k: null, fastest10k: null, estimated1RMs: {} },
+    badges: [],
+    missedReason: null,
+    theme: 'dark',
+    setupComplete: false
+  };
+
+  const DAYS = ['mon','tue','wed','thu','fri','sat','sun'];
+  const DAY_NAMES = { mon:'Monday', tue:'Tuesday', wed:'Wednesday', thu:'Thursday', fri:'Friday', sat:'Saturday', sun:'Sunday' };
+  const DAY_SHORT = { mon:'Mon', tue:'Tue', wed:'Wed', thu:'Thu', fri:'Fri', sat:'Sat', sun:'Sun' };
+
+  // ==========================================
+  // STORAGE
+  // ==========================================
+  function save() {
+    try { localStorage.setItem('doom_fitness_state', JSON.stringify(state)); } catch(e) { console.warn('Save failed:', e); }
+  }
+  function load() {
+    try {
+      const d = localStorage.getItem('doom_fitness_state');
+      if (d) { state = { ...state, ...JSON.parse(d) }; return true; }
+    } catch(e) { console.warn('Load failed:', e); }
+    return false;
+  }
+
+  // ==========================================
+  // UTILITIES
+  // ==========================================
+  function $(id) { return document.getElementById(id); }
+  function $$(sel) { return document.querySelectorAll(sel); }
+  function paceToSec(p) { if (!p) return 0; const pts = p.split(':'); return parseInt(pts[0])*60 + parseInt(pts[1] || 0); }
+  function secToPace(s) { if (!s || s <= 0) return '—'; const m = Math.floor(s/60); const sc = Math.round(s%60); return `${m}:${sc.toString().padStart(2,'0')}`; }
+  function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
+  function round1(v) { return Math.round(v * 10) / 10; }
+  function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+  function shuffled(arr) { const a = [...arr]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+  function today() { return new Date(); }
+  function dayOfWeekIndex(date) { const d = date.getDay(); return d === 0 ? 6 : d - 1; } // 0=Mon
+  function formatDate(date) { return date.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' }); }
+  function dateKey(date) { return date.toISOString().split('T')[0]; }
+  function getMonday(date) { const d = new Date(date); const day = d.getDay(); const diff = d.getDate() - day + (day === 0 ? -6 : 1); d.setDate(diff); d.setHours(0,0,0,0); return d; }
+  function addDays(date, n) { const d = new Date(date); d.setDate(d.getDate() + n); return d; }
+
+  function toast(msg) {
+    const t = $('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  // ==========================================
+  // THEME
+  // ==========================================
+  function toggleTheme() {
+    state.theme = state.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', state.theme);
+    document.querySelector('.theme-toggle').textContent = state.theme === 'dark' ? '🌙' : '☀️';
+    document.querySelector('meta[name="theme-color"]').content = state.theme === 'dark' ? '#050508' : '#f0f2f0';
+    save();
+  }
+
+  // ==========================================
+  // WIZARD
+  // ==========================================
+  let wizStep = 1;
+  const TOTAL_STEPS = 8;
+
+  function initWizardDots() {
+    const dots = $('wizardDots');
+    dots.innerHTML = '';
+    for (let i = 1; i <= TOTAL_STEPS; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'step-dot' + (i === 1 ? ' active' : '');
+      dot.dataset.step = i;
+      dots.appendChild(dot);
+    }
+  }
+
+  function updateWizardUI() {
+    $$('.wizard-step').forEach(s => s.classList.remove('active'));
+    const active = document.querySelector(`.wizard-step[data-step="${wizStep}"]`);
+    if (active) active.classList.add('active');
+    $('wizardProgress').style.width = `${(wizStep / TOTAL_STEPS) * 100}%`;
+    $$('.step-dot').forEach(d => {
+      const s = parseInt(d.dataset.step);
+      d.classList.toggle('active', s === wizStep);
+      d.classList.toggle('done', s < wizStep);
+    });
+  }
+
+  function wizardNext() {
+    if (wizStep === 1 && !validateStep1()) return;
+    if (wizStep === 5) previewPaceZones();
+    if (wizStep < TOTAL_STEPS) { wizStep++; updateWizardUI(); }
+  }
+  function wizardPrev() {
+    if (wizStep > 1) { wizStep--; updateWizardUI(); }
+  }
+
+  function validateStep1() {
+    const age = parseInt($('w-age').value);
+    const sex = $('w-sex').value;
+    const height = parseInt($('w-height').value);
+    const weight = parseFloat($('w-weight').value);
+    if (!age || !sex || !height || !weight) { toast('Please fill in all fields'); return false; }
+    updateBodyCalcs();
+    return true;
+  }
+
+  function updateBodyCalcs() {
+    const age = parseInt($('w-age').value);
+    const sex = $('w-sex').value;
+    const height = parseInt($('w-height').value);
+    const weight = parseFloat($('w-weight').value);
+    if (!age || !sex || !height || !weight) return;
+
+    const bmi = round1(weight / ((height / 100) ** 2));
+    // Mifflin-St Jeor
+    let bmr = sex === 'male' ? (10*weight + 6.25*height - 5*age + 5) : (10*weight + 6.25*height - 5*age - 161);
+    const tdee = Math.round(bmr * 1.55); // moderate activity
+    const protein = Math.round(weight * 1.8); // 1.8g/kg default
+
+    $('calcBMI').textContent = bmi;
+    $('calcCal').textContent = tdee;
+    $('calcProtein').textContent = protein + 'g';
+    $('bodyCalcStats').style.display = 'grid';
+  }
+
+  // Chip selection (single)
+  function selectChip(el, groupId) {
+    const chips = $$(` #${groupId} .chip`);
+    chips.forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  // Chip selection (multi)
+  function toggleChip(el) {
+    el.classList.toggle('active');
+  }
+
+  function getSelectedChip(groupId) {
+    const el = document.querySelector(`#${groupId} .chip.active`);
+    return el ? el.dataset.val : null;
+  }
+  function getSelectedChips(groupId) {
+    return [...document.querySelectorAll(`#${groupId} .chip.active`)].map(c => c.dataset.val);
+  }
+
+  // Commitments
+  let commitments = [];
+  function addCommitment() {
+    commitments.push({ day: 'mon', name: '', time: '18:00', duration: 60 });
+    renderCommitments();
+  }
+  function removeCommitment(i) {
+    commitments.splice(i, 1);
+    renderCommitments();
+  }
+  function renderCommitments() {
+    const el = $('commitmentList');
+    el.innerHTML = commitments.map((c, i) => `
+      <div class="card" style="margin-bottom:var(--s2);padding:var(--s3);">
+        <div class="flex items-center gap-2 mb-2">
+          <select onchange="FP._updateCommitment(${i},'day',this.value)" style="flex:1;">
+            ${DAYS.map(d => `<option value="${d}" ${c.day===d?'selected':''}>${DAY_NAMES[d]}</option>`).join('')}
+          </select>
+          <button class="btn btn-sm btn-danger" onclick="FP.removeCommitment(${i})" style="padding:6px 12px;">✕</button>
+        </div>
+        <input type="text" placeholder="e.g., Football practice" value="${c.name}" onchange="FP._updateCommitment(${i},'name',this.value)" style="margin-bottom:var(--s2);">
+        <div class="form-row">
+          <div class="input-group">
+            <input type="time" value="${c.time}" onchange="FP._updateCommitment(${i},'time',this.value)">
+          </div>
+          <div class="input-group">
+            <input type="number" value="${c.duration}" min="15" max="180" onchange="FP._updateCommitment(${i},'duration',parseInt(this.value))" inputmode="numeric">
+            <span class="input-suffix">min</span>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+  function _updateCommitment(i, key, val) { commitments[i][key] = val; }
+
+  // Pace zone preview
+  function previewPaceZones() {
+    const pace10k = paceToSec($('w-10k-pace').value);
+    if (!pace10k) return;
+    const zones = calcPaceZones(pace10k);
+    $('paceZonesPreview').style.display = 'block';
+    $('paceZonesList').innerHTML = `
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s2);margin-top:var(--s2);">
+        <div class="pace-zone zone-easy">Easy: ${secToPace(zones.easy.min)} – ${secToPace(zones.easy.max)}</div>
+        <div class="pace-zone zone-marathon">Marathon: ${secToPace(zones.marathon.min)} – ${secToPace(zones.marathon.max)}</div>
+        <div class="pace-zone zone-threshold">Threshold: ${secToPace(zones.threshold.min)} – ${secToPace(zones.threshold.max)}</div>
+        <div class="pace-zone zone-interval">Interval: ${secToPace(zones.interval.min)} – ${secToPace(zones.interval.max)}</div>
+        <div class="pace-zone zone-rep">Repetition: ${secToPace(zones.rep.min)} – ${secToPace(zones.rep.max)}</div>
+      </div>
+    `;
+  }
+
+  // ==========================================
+  // PACE ZONE CALCULATOR (Daniels-style)
+  // ==========================================
+  function calcPaceZones(pace10kSec) {
+    // Based on Daniels' VDOT relationships
+    // 10k pace ≈ Interval pace (I pace)
+    const I = pace10kSec;
+    return {
+      easy: { min: Math.round(I * 1.25), max: Math.round(I * 1.35) },       // ~25-35% slower than I
+      marathon: { min: Math.round(I * 1.10), max: Math.round(I * 1.15) },    // ~10-15% slower than I
+      threshold: { min: Math.round(I * 1.05), max: Math.round(I * 1.10) },   // ~5-10% slower than I
+      interval: { min: Math.round(I * 0.97), max: Math.round(I * 1.02) },    // ~I pace
+      rep: { min: Math.round(I * 0.90), max: Math.round(I * 0.95) }          // ~5-10% faster than I
+    };
+  }
+
+  // ==========================================
+  // EXERCISE LIBRARY
+  // ==========================================
+  const EXERCISES = {
+    // Compound - Quads
+    squat: { name: 'Barbell Back Squat', muscle: 'Quads, Glutes', compound: true, equipment: 'full_gym', cue: 'Brace core, sit between hips, knees track over toes', category: 'legs', alt: ['goblet_squat','leg_press','front_squat'] },
+    goblet_squat: { name: 'Goblet Squat', muscle: 'Quads, Glutes', compound: true, equipment: 'dumbbells', cue: 'Hold dumbbell at chest, elbows between knees', category: 'legs', alt: ['squat','bodyweight_squat'] },
+    leg_press: { name: 'Leg Press', muscle: 'Quads, Glutes', compound: true, equipment: 'full_gym', cue: 'Feet shoulder-width, don\'t lock knees at top', category: 'legs', alt: ['squat','goblet_squat'] },
+    front_squat: { name: 'Front Squat', muscle: 'Quads, Core', compound: true, equipment: 'full_gym', cue: 'Elbows high, upright torso', category: 'legs', alt: ['squat','goblet_squat'] },
+    bodyweight_squat: { name: 'Bodyweight Squat', muscle: 'Quads, Glutes', compound: true, equipment: 'bodyweight', cue: 'Arms forward for balance, full depth', category: 'legs', alt: [] },
+
+    // Compound - Hinge
+    deadlift: { name: 'Conventional Deadlift', muscle: 'Posterior Chain', compound: true, equipment: 'full_gym', cue: 'Neutral spine, push floor away, lock out hips', category: 'legs', alt: ['rdl','trap_bar_dl'] },
+    rdl: { name: 'Romanian Deadlift', muscle: 'Hamstrings, Glutes', compound: true, equipment: 'full_gym', cue: 'Soft knees, hinge at hips, feel hamstring stretch', category: 'legs', alt: ['db_rdl','deadlift'] },
+    db_rdl: { name: 'Dumbbell RDL', muscle: 'Hamstrings, Glutes', compound: true, equipment: 'dumbbells', cue: 'Dumbbells close to legs, hinge from hips', category: 'legs', alt: ['rdl','single_leg_rdl'] },
+    trap_bar_dl: { name: 'Trap Bar Deadlift', muscle: 'Quads, Glutes, Back', compound: true, equipment: 'full_gym', cue: 'Stand in center, grip handles, drive up', category: 'legs', alt: ['deadlift','rdl'] },
+    single_leg_rdl: { name: 'Single-Leg RDL', muscle: 'Hamstrings, Glutes, Balance', compound: true, equipment: 'dumbbells', cue: 'Hinge on one leg, reach opposite hand to floor', category: 'legs', alt: ['rdl','db_rdl'] },
+
+    // Compound - Push
+    bench_press: { name: 'Barbell Bench Press', muscle: 'Chest, Triceps', compound: true, equipment: 'full_gym', cue: 'Arch back slightly, bar to mid-chest, drive up', category: 'push', alt: ['db_bench','pushup'] },
+    db_bench: { name: 'Dumbbell Bench Press', muscle: 'Chest, Triceps', compound: true, equipment: 'dumbbells', cue: 'Dumbbells at chest height, press and squeeze at top', category: 'push', alt: ['bench_press','pushup'] },
+    ohp: { name: 'Overhead Press', muscle: 'Shoulders, Triceps', compound: true, equipment: 'full_gym', cue: 'Brace core, press straight up, move head through', category: 'push', alt: ['db_ohp','pike_pushup'] },
+    db_ohp: { name: 'Dumbbell Shoulder Press', muscle: 'Shoulders, Triceps', compound: true, equipment: 'dumbbells', cue: 'Press dumbbells overhead, control the descent', category: 'push', alt: ['ohp','pike_pushup'] },
+    pushup: { name: 'Push-Up', muscle: 'Chest, Triceps', compound: true, equipment: 'bodyweight', cue: 'Body straight like a plank, chest to floor', category: 'push', alt: ['bench_press','db_bench'] },
+    pike_pushup: { name: 'Pike Push-Up', muscle: 'Shoulders', compound: true, equipment: 'bodyweight', cue: 'Hips high in inverted V, lower head to floor', category: 'push', alt: ['ohp','db_ohp'] },
+    incline_bench: { name: 'Incline Dumbbell Press', muscle: 'Upper Chest, Shoulders', compound: true, equipment: 'dumbbells', cue: 'Bench at 30-45°, press up and slightly in', category: 'push', alt: ['bench_press','db_bench'] },
+
+    // Compound - Pull
+    barbell_row: { name: 'Barbell Row', muscle: 'Back, Biceps', compound: true, equipment: 'full_gym', cue: 'Hinge 45°, pull to lower chest, squeeze shoulder blades', category: 'pull', alt: ['db_row','inverted_row'] },
+    db_row: { name: 'Dumbbell Row', muscle: 'Back, Biceps', compound: true, equipment: 'dumbbells', cue: 'Brace on bench, row to hip, elbow past torso', category: 'pull', alt: ['barbell_row','inverted_row'] },
+    pullup: { name: 'Pull-Up', muscle: 'Lats, Biceps', compound: true, equipment: 'full_gym', cue: 'Full hang, pull chin over bar, control down', category: 'pull', alt: ['lat_pulldown','inverted_row'] },
+    lat_pulldown: { name: 'Lat Pulldown', muscle: 'Lats, Biceps', compound: true, equipment: 'full_gym', cue: 'Wide grip, pull to upper chest, lean slightly back', category: 'pull', alt: ['pullup','db_row'] },
+    inverted_row: { name: 'Inverted Row', muscle: 'Back, Biceps', compound: true, equipment: 'bodyweight', cue: 'Body straight, pull chest to bar/edge', category: 'pull', alt: ['pullup','db_row'] },
+
+    // Legs - Unilateral
+    split_squat: { name: 'Bulgarian Split Squat', muscle: 'Quads, Glutes', compound: true, equipment: 'dumbbells', cue: 'Rear foot elevated, lower knee toward floor', category: 'legs', alt: ['lunge','step_up'] },
+    lunge: { name: 'Walking Lunge', muscle: 'Quads, Glutes', compound: true, equipment: 'dumbbells', cue: 'Long stride, torso upright, knee tracks over foot', category: 'legs', alt: ['split_squat','step_up'] },
+    step_up: { name: 'Step-Up', muscle: 'Quads, Glutes', compound: true, equipment: 'dumbbells', cue: 'Drive through front foot, don\'t push off back leg', category: 'legs', alt: ['split_squat','lunge'] },
+
+    // Glutes / Hip
+    hip_thrust: { name: 'Hip Thrust', muscle: 'Glutes', compound: true, equipment: 'full_gym', cue: 'Back on bench, drive hips up, squeeze glutes at top', category: 'legs', alt: ['glute_bridge','db_hip_thrust'] },
+    glute_bridge: { name: 'Glute Bridge', muscle: 'Glutes', compound: false, equipment: 'bodyweight', cue: 'Feet flat, drive hips up, squeeze at top', category: 'legs', alt: ['hip_thrust'] },
+    db_hip_thrust: { name: 'Dumbbell Hip Thrust', muscle: 'Glutes', compound: true, equipment: 'dumbbells', cue: 'Back on bench, DB on hips, thrust up', category: 'legs', alt: ['hip_thrust','glute_bridge'] },
+
+    // Isolation
+    lateral_raise: { name: 'Lateral Raise', muscle: 'Side Delts', compound: false, equipment: 'dumbbells', cue: 'Slight bend in elbows, raise to shoulder height', category: 'push', alt: ['cable_lateral'] },
+    cable_lateral: { name: 'Cable Lateral Raise', muscle: 'Side Delts', compound: false, equipment: 'full_gym', cue: 'Slight lean away, raise to shoulder height', category: 'push', alt: ['lateral_raise'] },
+    bicep_curl: { name: 'Dumbbell Bicep Curl', muscle: 'Biceps', compound: false, equipment: 'dumbbells', cue: 'Control the weight, squeeze at top, full extension', category: 'pull', alt: ['hammer_curl'] },
+    hammer_curl: { name: 'Hammer Curl', muscle: 'Biceps, Brachialis', compound: false, equipment: 'dumbbells', cue: 'Neutral grip, control both directions', category: 'pull', alt: ['bicep_curl'] },
+    tricep_pushdown: { name: 'Tricep Pushdown', muscle: 'Triceps', compound: false, equipment: 'full_gym', cue: 'Elbows pinned to sides, extend fully', category: 'push', alt: ['overhead_ext','dips'] },
+    overhead_ext: { name: 'Overhead Tricep Extension', muscle: 'Triceps', compound: false, equipment: 'dumbbells', cue: 'Elbows forward, lower behind head, extend up', category: 'push', alt: ['tricep_pushdown','dips'] },
+    dips: { name: 'Dips', muscle: 'Chest, Triceps', compound: true, equipment: 'bodyweight', cue: 'Lean forward for chest, upright for triceps', category: 'push', alt: ['tricep_pushdown','pushup'] },
+    leg_curl: { name: 'Lying Leg Curl', muscle: 'Hamstrings', compound: false, equipment: 'full_gym', cue: 'Don\'t lift hips, control the eccentric', category: 'legs', alt: ['nordic_curl','db_leg_curl'] },
+    leg_extension: { name: 'Leg Extension', muscle: 'Quads', compound: false, equipment: 'full_gym', cue: 'Controlled movement, squeeze at full extension', category: 'legs', alt: ['bodyweight_squat'] },
+    calf_raise: { name: 'Standing Calf Raise', muscle: 'Calves', compound: false, equipment: 'full_gym', cue: 'Full range of motion, pause at top', category: 'legs', alt: ['seated_calf','bw_calf_raise'] },
+    seated_calf: { name: 'Seated Calf Raise', muscle: 'Soleus', compound: false, equipment: 'full_gym', cue: 'Bent knee targets soleus, full stretch at bottom', category: 'legs', alt: ['calf_raise','bw_calf_raise'] },
+    bw_calf_raise: { name: 'Single-Leg Calf Raise', muscle: 'Calves', compound: false, equipment: 'bodyweight', cue: 'Stand on step edge, full range, pause at top', category: 'legs', alt: ['calf_raise'] },
+    face_pull: { name: 'Face Pull', muscle: 'Rear Delts, Rotator Cuff', compound: false, equipment: 'full_gym', cue: 'Pull to face level, rotate externally at end', category: 'pull', alt: ['band_pull_apart','rear_fly'] },
+    rear_fly: { name: 'Reverse Dumbbell Fly', muscle: 'Rear Delts', compound: false, equipment: 'dumbbells', cue: 'Bent over, raise arms to sides, squeeze', category: 'pull', alt: ['face_pull'] },
+    band_pull_apart: { name: 'Band Pull-Apart', muscle: 'Rear Delts', compound: false, equipment: 'bodyweight', cue: 'Arms straight, pull band apart at chest height', category: 'pull', alt: ['face_pull','rear_fly'] },
+
+    // Core
+    plank: { name: 'Plank', muscle: 'Core', compound: false, equipment: 'bodyweight', cue: 'Straight line from head to heels, brace abs', category: 'core', alt: ['dead_bug','pallof'] },
+    dead_bug: { name: 'Dead Bug', muscle: 'Core (Anti-Extension)', compound: false, equipment: 'bodyweight', cue: 'Lower back flat, opposite arm & leg lower together', category: 'core', alt: ['plank','pallof'] },
+    pallof: { name: 'Pallof Press', muscle: 'Core (Anti-Rotation)', compound: false, equipment: 'full_gym', cue: 'Press away from body, resist rotation', category: 'core', alt: ['dead_bug','plank'] },
+    russian_twist: { name: 'Russian Twist', muscle: 'Obliques', compound: false, equipment: 'bodyweight', cue: 'Lean back slightly, rotate torso side to side', category: 'core', alt: ['pallof','woodchop'] },
+    woodchop: { name: 'Cable Woodchop', muscle: 'Core, Obliques', compound: false, equipment: 'full_gym', cue: 'Rotate from hips, arms guide the weight', category: 'core', alt: ['russian_twist','pallof'] },
+    hanging_leg_raise: { name: 'Hanging Leg Raise', muscle: 'Core, Hip Flexors', compound: false, equipment: 'full_gym', cue: 'Control the swing, curl pelvis up', category: 'core', alt: ['dead_bug','plank'] },
+
+    // Runner-specific
+    nordic_curl: { name: 'Nordic Curl (Eccentric)', muscle: 'Hamstrings', compound: false, equipment: 'bodyweight', cue: 'Control the descent as slow as possible', category: 'legs', alt: ['leg_curl','rdl'] },
+    hip_abductor: { name: 'Side-Lying Hip Abduction', muscle: 'Glute Med', compound: false, equipment: 'bodyweight', cue: 'Lie on side, raise top leg, control down', category: 'legs', alt: ['banded_walk'] },
+    banded_walk: { name: 'Banded Lateral Walk', muscle: 'Glute Med', compound: false, equipment: 'bodyweight', cue: 'Band above knees, stay low, step sideways', category: 'legs', alt: ['hip_abductor'] },
+    db_leg_curl: { name: 'Dumbbell Leg Curl', muscle: 'Hamstrings', compound: false, equipment: 'dumbbells', cue: 'Lie face down, squeeze DB between feet, curl up', category: 'legs', alt: ['leg_curl','nordic_curl'] },
+
+    // Plyometrics
+    pogo_hop: { name: 'Pogo Hops', muscle: 'Calves, Achilles', compound: false, equipment: 'bodyweight', cue: 'Stiff ankles, quick ground contact, bounce', category: 'plyo', alt: ['box_jump'] },
+    box_jump: { name: 'Box Jump', muscle: 'Power, Quads', compound: true, equipment: 'full_gym', cue: 'Swing arms, land softly, step down', category: 'plyo', alt: ['pogo_hop','broad_jump'] },
+    broad_jump: { name: 'Broad Jump', muscle: 'Power, Posterior Chain', compound: true, equipment: 'bodyweight', cue: 'Swing arms, explode forward, land soft', category: 'plyo', alt: ['box_jump','pogo_hop'] },
+  };
+
+  // ==========================================
+  // SPORT DRILLS LIBRARY
+  // ==========================================
+  const SPORT_DRILLS = {
+    football: [
+      { name: 'Dribbling drills (close control)', duration: 15, intensity: 'moderate' },
+      { name: 'Passing accuracy (short & long)', duration: 15, intensity: 'moderate' },
+      { name: 'Shooting practice', duration: 15, intensity: 'high' },
+      { name: 'Small-sided game (4v4 or 5v5)', duration: 20, intensity: 'high' },
+      { name: 'Agility ladder + cone drills', duration: 10, intensity: 'high' },
+    ],
+    cricket: [
+      { name: 'Batting net session', duration: 20, intensity: 'moderate' },
+      { name: 'Bowling practice (6-over spells)', duration: 20, intensity: 'moderate' },
+      { name: 'Fielding drills (catching & ground)', duration: 15, intensity: 'moderate' },
+      { name: 'Throwdown practice', duration: 15, intensity: 'moderate' },
+    ],
+    badminton: [
+      { name: 'Footwork shadow drills', duration: 10, intensity: 'high' },
+      { name: 'Clear & drop shot rallies', duration: 15, intensity: 'moderate' },
+      { name: 'Net play practice', duration: 10, intensity: 'moderate' },
+      { name: 'Match play (singles or doubles)', duration: 20, intensity: 'high' },
+    ],
+    basketball: [
+      { name: 'Dribbling drills (crossover, behind-back)', duration: 10, intensity: 'moderate' },
+      { name: 'Shooting practice (mid-range + 3pt)', duration: 15, intensity: 'low' },
+      { name: 'Defensive slides & footwork', duration: 10, intensity: 'high' },
+      { name: 'Pick-up game / scrimmage', duration: 25, intensity: 'high' },
+    ],
+    swimming: [
+      { name: 'Warm-up: 200m easy mixed stroke', duration: 8, intensity: 'low' },
+      { name: 'Main set: 8x50m on interval', duration: 15, intensity: 'high' },
+      { name: 'Technique drills (catch-up, fingertip drag)', duration: 10, intensity: 'low' },
+      { name: 'Cool-down: 200m easy', duration: 8, intensity: 'low' },
+    ],
+    cycling: [
+      { name: 'Easy spin (Zone 2)', duration: 40, intensity: 'low' },
+      { name: 'Tempo intervals (3x8min)', duration: 30, intensity: 'moderate' },
+      { name: 'Hill repeats (4x3min)', duration: 20, intensity: 'high' },
+      { name: 'Recovery spin', duration: 25, intensity: 'low' },
+    ],
+    yoga: [
+      { name: 'Sun salutation flow', duration: 15, intensity: 'low' },
+      { name: 'Warrior sequence (I, II, III)', duration: 10, intensity: 'low' },
+      { name: 'Hip opener sequence', duration: 10, intensity: 'low' },
+      { name: 'Balance & core poses', duration: 10, intensity: 'low' },
+      { name: 'Savasana & breathing', duration: 5, intensity: 'low' },
+    ],
+  };
+
+  // ==========================================
+  // RUNNING SESSION TEMPLATES
+  // ==========================================
+  function generateRunSession(type, zones, weeklyKm, longestRun, level) {
+    const easyPace = `${secToPace(zones.easy.min)} – ${secToPace(zones.easy.max)}`;
+    const threshPace = `${secToPace(zones.threshold.min)} – ${secToPace(zones.threshold.max)}`;
+    const intervalPace = `${secToPace(zones.interval.min)} – ${secToPace(zones.interval.max)}`;
+    const repPace = `${secToPace(zones.rep.min)} – ${secToPace(zones.rep.max)}`;
+    const marathonPace = `${secToPace(zones.marathon.min)} – ${secToPace(zones.marathon.max)}`;
+
+    const templates = {
+      easy: {
+        title: '🟢 Easy Run',
+        zone: 'easy',
+        warmup: 'Walk 3min → Easy jog 5min',
+        main: `${round1(weeklyKm * 0.2)}km at easy pace (${easyPace}/km). Conversational effort, RPE 3-4.`,
+        cooldown: 'Walk 5min + light stretching',
+        distance: round1(weeklyKm * 0.2),
+        why: 'Builds aerobic base and recovery between harder sessions. About 80% of your training should be at this effort.'
+      },
+      easy_strides: {
+        title: '🟢 Easy Run + Strides',
+        zone: 'easy',
+        warmup: 'Walk 3min → Easy jog 5min',
+        main: `${round1(weeklyKm * 0.18)}km easy (${easyPace}/km). Then 6×20s strides at ${repPace}/km with 60s walk recovery. Focus on form, not speed.`,
+        cooldown: 'Walk 5min',
+        distance: round1(weeklyKm * 0.18 + 0.8),
+        why: 'Strides develop neuromuscular efficiency and running economy without significant fatigue.'
+      },
+      recovery: {
+        title: '🟢 Recovery Run',
+        zone: 'easy',
+        warmup: 'Walk 5min',
+        main: `${round1(weeklyKm * 0.12)}km very easy (${secToPace(zones.easy.max)} or slower/km). Truly conversational. RPE 2-3.`,
+        cooldown: 'Walk 5min + foam roll',
+        distance: round1(weeklyKm * 0.12),
+        why: 'Active recovery promotes blood flow without adding training stress. Keep this genuinely easy.'
+      },
+      long_run: {
+        title: '🔵 Long Run',
+        zone: 'easy',
+        warmup: 'Walk 5min → Easy jog 10min',
+        main: `${round1(Math.min(weeklyKm * 0.28, 25))}km at easy pace (${easyPace}/km). Even splits or slight negative split.`,
+        cooldown: 'Walk 10min + full stretching routine',
+        distance: round1(Math.min(weeklyKm * 0.28, 25)),
+        why: 'Builds endurance, fat oxidation, and mental toughness. Capped at ~25-30% of weekly volume.'
+      },
+      tempo: {
+        title: '🟡 Tempo / Threshold Run',
+        zone: 'threshold',
+        warmup: '10min easy jog + 4×20s strides',
+        main: `Continuous tempo: ${level === 'beginner' ? '15' : '25'}min at threshold pace (${threshPace}/km). RPE 7-8, "comfortably hard." Should be able to say short phrases.`,
+        cooldown: '10min easy jog + stretching',
+        distance: round1(weeklyKm * 0.15),
+        why: 'Improves lactate threshold — the pace you can sustain for about an hour. Key for 10K performance.'
+      },
+      cruise_intervals: {
+        title: '🟡 Cruise Intervals',
+        zone: 'threshold',
+        warmup: '10min easy jog + dynamic drills',
+        main: `3×${level === 'beginner' ? '8' : '10'}min at threshold pace (${threshPace}/km) with 2min easy jog recovery. RPE 7-8.`,
+        cooldown: '10min easy jog',
+        distance: round1(weeklyKm * 0.14),
+        why: 'Broken threshold work accumulates more time at lactate threshold intensity with less fatigue than continuous tempo.'
+      },
+      vo2max: {
+        title: '🔴 VO2max Intervals',
+        zone: 'interval',
+        warmup: '15min easy jog + 4×20s strides + dynamic drills',
+        main: level === 'beginner' ?
+          `4×800m at interval pace (${intervalPace}/km) with 3min easy jog recovery. RPE 8-9.` :
+          `5×1000m at interval pace (${intervalPace}/km) with 3min easy jog recovery. RPE 8-9.`,
+        cooldown: '10min easy jog + stretching',
+        distance: round1(weeklyKm * 0.12),
+        why: 'Maximises oxygen uptake capacity (VO2max). The most potent stimulus for improving running fitness per minute.'
+      },
+      hill_repeats: {
+        title: '🔴 Hill Repeats',
+        zone: 'interval',
+        warmup: '10min easy jog + dynamic drills',
+        main: `${level === 'beginner' ? '6' : '8'}×60s hard uphill (6-8% grade) at RPE 8-9, with easy jog down recovery. Focus on driving knees and arms.`,
+        cooldown: '10min easy jog',
+        distance: round1(weeklyKm * 0.1),
+        why: 'Builds running-specific strength, power, and VO2max with lower impact than flat intervals.'
+      },
+      race_pace: {
+        title: '🟠 Race-Pace Workout',
+        zone: 'threshold',
+        warmup: '15min easy jog + strides',
+        main: `2×${level === 'beginner' ? '10' : '15'}min at target 10K pace with 3min easy jog recovery. Practice race intensity and pacing.`,
+        cooldown: '10min easy jog',
+        distance: round1(weeklyKm * 0.13),
+        why: 'Develops pace awareness and race-specific fitness. Helps your body learn the target pace.'
+      }
+    };
+    return templates[type] || templates.easy;
+  }
+
+  // ==========================================
+  // GYM SESSION GENERATOR
+  // ==========================================
+  function getExerciseForEquipment(key, equipment) {
+    const ex = EXERCISES[key];
+    if (!ex) return null;
+    if (ex.equipment === 'bodyweight' || ex.equipment === equipment || equipment === 'full_gym') return { key, ...ex };
+    // Find alternative
+    for (const altKey of (ex.alt || [])) {
+      const alt = EXERCISES[altKey];
+      if (alt && (alt.equipment === 'bodyweight' || alt.equipment === equipment || equipment === 'full_gym')) {
+        return { key: altKey, ...alt };
+      }
+    }
+    return null;
+  }
+
+  function generateGymSession(type, profile, isRunnerStrength = false) {
+    const goal = profile.goal;
+    const level = profile.gymLevel;
+    const equipment = profile.equipment;
+    const injuries = profile.injuries || [];
+    const dislike = (profile.dislikeExercises || '').toLowerCase().split(',').map(s => s.trim()).filter(Boolean);
+
+    // Rep ranges by goal
+    let compoundReps, isoReps, sets;
+    if (goal === 'muscle_gain') {
+      compoundReps = level === 'beginner' ? '3×10' : '4×8-12';
+      isoReps = level === 'beginner' ? '2×12-15' : '3×12-15';
+      sets = level === 'beginner' ? 3 : 4;
+    } else if (goal === 'fat_loss') {
+      compoundReps = level === 'beginner' ? '3×10-12' : '3×10-12';
+      isoReps = level === 'beginner' ? '2×12-15' : '3×12-15';
+      sets = 3;
+    } else {
+      compoundReps = level === 'beginner' ? '3×8-10' : '3×6-10';
+      isoReps = level === 'beginner' ? '2×10-12' : '3×10-15';
+      sets = level === 'beginner' ? 3 : 3;
+    }
+    const compoundRPE = level === 'beginner' ? 'RPE 6-7' : 'RPE 7-9';
+    const isoRPE = level === 'beginner' ? 'RPE 6-8' : 'RPE 7-9';
+    const compoundRest = '2-3 min';
+    const isoRest = '60-90 sec';
+
+    function ex(key) {
+      const found = getExerciseForEquipment(key, equipment);
+      if (!found) return null;
+      // Check dislike
+      if (dislike.some(d => found.name.toLowerCase().includes(d))) {
+        for (const altKey of (found.alt || [])) {
+          const alt = getExerciseForEquipment(altKey, equipment);
+          if (alt && !dislike.some(d => alt.name.toLowerCase().includes(d))) return alt;
+        }
+      }
+      // Check injury
+      if (injuries.includes('knees') && (found.name.includes('Squat') || found.name.includes('Lunge') || found.name.includes('Leg Extension'))) {
+        for (const altKey of (found.alt || [])) {
+          const alt = getExerciseForEquipment(altKey, equipment);
+          if (alt) return alt;
+        }
+      }
+      if (injuries.includes('shoulders') && (found.name.includes('Overhead') || found.name.includes('Shoulder') || found.name.includes('Pike'))) {
+        return null; // skip
+      }
+      if (injuries.includes('lower_back') && (found.name.includes('Deadlift') || found.name.includes('Barbell Row'))) {
+        for (const altKey of (found.alt || [])) {
+          const alt = getExerciseForEquipment(altKey, equipment);
+          if (alt) return alt;
+        }
+      }
+      return found;
+    }
+
+    let exercises = [];
+    const warmup = 'General: 5min cardio (bike/row/skip) → Dynamic mobility (leg swings, arm circles, hip circles, world\'s greatest stretch) → Ramp-up sets (2-3 light sets of first exercise)';
+    const cooldown = 'Static stretching (30s each major muscle group) + foam rolling if available';
+
+    if (isRunnerStrength) {
+      // Runner-specific strength session
+      const runnerExs = [
+        ex('split_squat') || ex('lunge') || ex('step_up'),
+        ex('rdl') || ex('db_rdl'),
+        ex('calf_raise') || ex('bw_calf_raise'),
+        ex('seated_calf') || ex('bw_calf_raise'),
+        ex('hip_thrust') || ex('glute_bridge'),
+        ex('hip_abductor') || ex('banded_walk'),
+        ex('nordic_curl') || ex('leg_curl'),
+        ex('dead_bug') || ex('plank'),
+      ].filter(Boolean);
+
+      if (level === 'advanced' || level === 'intermediate') {
+        const plyo = ex('pogo_hop') || ex('broad_jump');
+        if (plyo) runnerExs.push(plyo);
+      }
+
+      exercises = runnerExs.map(e => ({
+        ...e,
+        prescription: e.compound ? `3×${level === 'beginner' ? '10-12' : '8-10'}` : `2×${level === 'beginner' ? '12-15' : '10-12'}`,
+        rest: e.compound ? '2 min' : '60-90 sec',
+        rpe: level === 'beginner' ? 'RPE 6-7' : 'RPE 7-8'
+      }));
+
+      return {
+        title: '🏋️ Runner Strength',
+        type: 'gym',
+        subtype: 'runner_strength',
+        warmup,
+        exercises,
+        cooldown,
+        why: 'Runner-specific strength prevents injury and improves running economy. Focus on single-leg stability, hip/glute strength, and calf resilience.'
+      };
+    }
+
+    // Standard gym sessions by split type
+    const sessions = {
+      full_body: () => {
+        return [
+          ex('squat') || ex('goblet_squat') || ex('leg_press'),
+          ex('bench_press') || ex('db_bench') || ex('pushup'),
+          ex('barbell_row') || ex('db_row') || ex('inverted_row'),
+          ex('rdl') || ex('db_rdl'),
+          ex('db_ohp') || ex('ohp') || ex('pike_pushup'),
+          ex('lateral_raise'),
+          ex('plank') || ex('dead_bug'),
+        ].filter(Boolean);
+      },
+      upper: () => {
+        return [
+          ex('bench_press') || ex('db_bench') || ex('pushup'),
+          ex('barbell_row') || ex('db_row') || ex('inverted_row'),
+          ex('ohp') || ex('db_ohp') || ex('pike_pushup'),
+          ex('pullup') || ex('lat_pulldown') || ex('inverted_row'),
+          ex('incline_bench') || ex('db_bench'),
+          ex('lateral_raise'),
+          ex('face_pull') || ex('rear_fly'),
+          ex('bicep_curl'),
+          ex('tricep_pushdown') || ex('overhead_ext') || ex('dips'),
+        ].filter(Boolean);
+      },
+      lower: () => {
+        return [
+          ex('squat') || ex('goblet_squat') || ex('leg_press'),
+          ex('rdl') || ex('db_rdl'),
+          ex('split_squat') || ex('lunge') || ex('step_up'),
+          ex('hip_thrust') || ex('glute_bridge'),
+          ex('leg_curl') || ex('nordic_curl'),
+          ex('leg_extension') || ex('bodyweight_squat'),
+          ex('calf_raise') || ex('bw_calf_raise'),
+          ex('plank') || ex('dead_bug'),
+        ].filter(Boolean);
+      },
+      push: () => {
+        return [
+          ex('bench_press') || ex('db_bench') || ex('pushup'),
+          ex('ohp') || ex('db_ohp') || ex('pike_pushup'),
+          ex('incline_bench') || ex('db_bench'),
+          ex('lateral_raise'),
+          ex('tricep_pushdown') || ex('overhead_ext') || ex('dips'),
+          ex('plank') || ex('dead_bug'),
+        ].filter(Boolean);
+      },
+      pull: () => {
+        return [
+          ex('pullup') || ex('lat_pulldown') || ex('inverted_row'),
+          ex('barbell_row') || ex('db_row'),
+          ex('face_pull') || ex('rear_fly'),
+          ex('bicep_curl'),
+          ex('hammer_curl'),
+          ex('dead_bug') || ex('pallof'),
+        ].filter(Boolean);
+      },
+      legs: () => {
+        return [
+          ex('squat') || ex('goblet_squat') || ex('leg_press'),
+          ex('rdl') || ex('db_rdl'),
+          ex('split_squat') || ex('lunge'),
+          ex('hip_thrust') || ex('glute_bridge'),
+          ex('leg_curl') || ex('nordic_curl'),
+          ex('calf_raise') || ex('bw_calf_raise'),
+          ex('seated_calf') || ex('bw_calf_raise'),
+          ex('hanging_leg_raise') || ex('dead_bug'),
+        ].filter(Boolean);
+      },
+    };
+
+    const exerciseList = (sessions[type] || sessions.full_body)();
+    exercises = exerciseList.map((e, i) => ({
+      ...e,
+      prescription: (i < 3 && e.compound) ? compoundReps : isoReps,
+      rest: (e.compound && i < 4) ? compoundRest : isoRest,
+      rpe: (e.compound && i < 4) ? compoundRPE : isoRPE
+    }));
+
+    const titles = {
+      full_body: '🏋️ Full Body',
+      upper: '🏋️ Upper Body',
+      lower: '🏋️ Lower Body',
+      push: '🏋️ Push Day',
+      pull: '🏋️ Pull Day',
+      legs: '🏋️ Legs Day',
+    };
+
+    const whys = {
+      full_body: 'Full body sessions hit all major muscle groups, ideal for 2-3 gym days per week. Compound-first approach maximizes efficiency.',
+      upper: 'Dedicated upper body work allows higher volume for chest, back, and shoulders for faster strength and size gains.',
+      lower: 'Lower body focus builds the foundation — stronger legs, hips and core benefit every sport and daily movement.',
+      push: 'Push muscles (chest, shoulders, triceps) trained together with systematic overload for balanced upper body development.',
+      pull: 'Pull muscles (back, biceps, rear delts) complement push days and maintain shoulder health.',
+      legs: 'Comprehensive leg training for power, stability, and injury prevention across all activities.',
+    };
+
+    return {
+      title: titles[type] || '🏋️ Gym Session',
+      type: 'gym',
+      subtype: type,
+      warmup,
+      exercises,
+      cooldown,
+      why: whys[type] || 'Structured resistance training following evidence-based guidelines for progressive overload.'
+    };
+  }
+
+  // ==========================================
+  // PLAN GENERATION ENGINE
+  // ==========================================
+  function generatePlan() {
+    // Collect all profile data
+    const profile = {
+      age: parseInt($('w-age').value) || 25,
+      sex: $('w-sex').value || 'male',
+      height: parseInt($('w-height').value) || 175,
+      weight: parseFloat($('w-weight').value) || 75,
+      goal: getSelectedChip('goalChips') || 'general_fitness',
+      timeframe: parseInt($('w-timeframe').value) || 12,
+      gymLevel: getSelectedChip('gymLevelChips') || 'beginner',
+      runLevel: getSelectedChip('runLevelChips') || 'beginner',
+      interests: getSelectedChips('interestChips'),
+      customSports: $('w-custom-sport').value,
+      easyPace: $('w-easy-pace').value,
+      pace10k: $('w-10k-pace').value,
+      targetPace: $('w-target-pace').value,
+      weeklyKm: parseFloat($('w-weekly-km').value) || 20,
+      longestRun: parseFloat($('w-longest-run').value) || 10,
+      trainDays: parseInt($('w-train-days').value) || 5,
+      availDays: getSelectedChips('dayChips'),
+      maxMin: parseInt($('w-max-min').value) || 60,
+      prefTime: $('w-pref-time').value,
+      equipment: $('w-equipment').value || 'full_gym',
+      commitments: commitments,
+      split: $('w-split').value || 'auto',
+      dislikeExercises: $('w-dislike').value || '',
+      injuries: getSelectedChips('injuryChips'),
+      injuryNotes: $('w-injury-notes').value || '',
+    };
+
+    // Calculate derived values
+    const bmi = round1(profile.weight / ((profile.height / 100) ** 2));
+    const bmr = profile.sex === 'male' ? (10*profile.weight + 6.25*profile.height - 5*profile.age + 5) : (10*profile.weight + 6.25*profile.height - 5*profile.age - 161);
+    const activityMultiplier = profile.trainDays >= 5 ? 1.725 : (profile.trainDays >= 3 ? 1.55 : 1.375);
+    const tdee = Math.round(bmr * activityMultiplier);
+    let calories = tdee;
+    let proteinPerKg = 1.8;
+    if (profile.goal === 'fat_loss') { calories = Math.round(tdee * 0.8); proteinPerKg = 2.2; }
+    else if (profile.goal === 'muscle_gain') { calories = Math.round(tdee * 1.1); proteinPerKg = 2.0; }
+    profile.bmi = bmi;
+    profile.tdee = tdee;
+    profile.calories = calories;
+    profile.protein = Math.round(profile.weight * proteinPerKg);
+
+    // Pace zones
+    const pace10kSec = paceToSec(profile.pace10k) || paceToSec('5:30');
+    profile.paceZones = calcPaceZones(pace10kSec);
+
+    // Check realistic pace goal
+    const targetSec = paceToSec(profile.targetPace);
+    const improvementSec = pace10kSec - targetSec;
+    const maxRealisticImprovement = profile.timeframe * 2; // ~2 sec/km per week is aggressive
+    profile.paceWarning = null;
+    if (targetSec > 0 && improvementSec > maxRealisticImprovement) {
+      const realisticWeeks = Math.ceil(improvementSec / 2);
+      profile.paceWarning = `Your target pace improvement of ${improvementSec}s/km in ${profile.timeframe} weeks is ambitious. A realistic timeline would be ${realisticWeeks} weeks. We'll still set progressive targets, but consider extending your timeframe.`;
+    }
+
+    // Milestone paces (every 4 weeks)
+    const milestones = [];
+    if (targetSec > 0 && pace10kSec > targetSec) {
+      const totalImprovement = pace10kSec - targetSec;
+      const numMilestones = Math.floor(profile.timeframe / 4);
+      for (let i = 1; i <= numMilestones; i++) {
+        const progress = Math.min(1, (i * 4) / profile.timeframe);
+        const milestonePace = Math.round(pace10kSec - (totalImprovement * progress * 0.8)); // cap at 80% of total
+        milestones.push({ week: i * 4, pace: secToPace(milestonePace) });
+      }
+    }
+    profile.milestones = milestones;
+
+    // Determine split
+    const hasRunning = profile.interests.includes('running');
+    const hasGym = profile.interests.includes('gym');
+    const sports = profile.interests.filter(i => !['running','gym'].includes(i));
+    const customSports = profile.customSports ? profile.customSports.split(',').map(s => s.trim()).filter(Boolean) : [];
+
+    let gymSplit = profile.split;
+    if (gymSplit === 'auto') {
+      const gymDays = hasRunning ? Math.min(3, profile.trainDays - (hasRunning ? 2 : 0)) : Math.min(4, profile.trainDays);
+      if (gymDays <= 2) gymSplit = 'full_body';
+      else if (gymDays === 3) gymSplit = 'full_body'; // or upper_lower
+      else if (gymDays === 4) gymSplit = 'upper_lower';
+      else gymSplit = 'push_pull_legs';
+    }
+    profile.resolvedSplit = gymSplit;
+
+    // Build weekly template
+    const plan = buildWeeklySchedule(profile, hasRunning, hasGym, sports, customSports);
+
+    state.profile = profile;
+    state.plan = plan;
+    state.setupComplete = true;
+    state.planStartDate = dateKey(today());
+    state.currentWeek = 0;
+    state.logs = state.logs || [];
+    state.weightLog = state.weightLog || [];
+    save();
+
+    // Switch to main app
+    $('screen-wizard').classList.remove('active');
+    $('bottomNav').style.display = 'flex';
+    switchTab('today');
+  }
+
+  function buildWeeklySchedule(profile, hasRunning, hasGym, sports, customSports) {
+    const avail = profile.availDays;
+    const commitDays = profile.commitments.map(c => c.day);
+    const trainDays = profile.trainDays;
+
+    // Build weeks for the entire program
+    const weeks = [];
+    const totalWeeks = profile.timeframe;
+
+    // Determine base phase for beginners
+    const needsRunBase = hasRunning && (profile.runLevel === 'beginner' || profile.weeklyKm < 15);
+    const needsGymIntro = hasGym && profile.gymLevel === 'beginner';
+    const basePhaseWeeks = needsRunBase || needsGymIntro ? 3 : 0;
+
+    for (let w = 0; w < totalWeeks; w++) {
+      const isCutback = (w > 0 && ((w + 1) % 4 === 0));
+      const isBasePhase = w < basePhaseWeeks;
+      const weeklyKm = calculateWeeklyKm(profile.weeklyKm, w, totalWeeks, isCutback, isBasePhase);
+
+      const week = {
+        weekNum: w + 1,
+        isCutback,
+        isBasePhase,
+        weeklyKm,
+        days: {}
+      };
+
+      // Plan each day
+      DAYS.forEach(day => {
+        const commitment = profile.commitments.find(c => c.day === day);
+        if (commitment) {
+          week.days[day] = {
+            type: 'sport',
+            sessions: [{
+              title: `📌 ${commitment.name}`,
+              type: 'commitment',
+              duration: commitment.duration,
+              time: commitment.time,
+              why: 'Fixed commitment — this session is locked in your schedule.'
+            }],
+            isCommitment: true
+          };
+        } else if (!avail.includes(day)) {
+          week.days[day] = { type: 'rest', sessions: [{ title: '😴 Rest Day', type: 'rest', why: 'Not available for training. Rest supports recovery and adaptation.' }] };
+        } else {
+          week.days[day] = null; // To be filled
+        }
+      });
+
+      // Allocate sessions to available slots
+      const freeSlots = DAYS.filter(d => week.days[d] === null);
+      const sessionQueue = buildSessionQueue(profile, hasRunning, hasGym, sports, customSports, w, weeklyKm, isCutback, isBasePhase);
+
+      // Assign sessions respecting rules
+      assignSessions(week, freeSlots, sessionQueue, profile);
+
+      // Fill remaining free slots
+      DAYS.forEach(day => {
+        if (week.days[day] === null) {
+          week.days[day] = { type: 'rest', sessions: [{ title: '😴 Rest Day', type: 'rest', why: 'Recovery is where adaptation happens. At least 1 full rest day per week is essential.' }] };
+        }
+      });
+
+      weeks.push(week);
+    }
+
+    return { weeks, totalWeeks, basePhaseWeeks };
+  }
+
+  function calculateWeeklyKm(baseKm, week, totalWeeks, isCutback, isBasePhase) {
+    if (isBasePhase) return baseKm;
+    // Progressive overload: ~10% per training block (3 weeks), cutback every 4th
+    const buildWeek = week - (week > 0 ? Math.floor(week / 4) : 0); // subtract cutback weeks
+    const progression = Math.min(baseKm * (1 + 0.1 * Math.floor(buildWeek / 3)), baseKm * 2); // cap at 2x
+    return isCutback ? round1(progression * 0.75) : round1(progression);
+  }
+
+  function buildSessionQueue(profile, hasRunning, hasGym, sports, customSports, weekNum, weeklyKm, isCutback, isBasePhase) {
+    const queue = [];
+    const zones = profile.paceZones;
+    const level = profile.runLevel;
+
+    if (hasRunning) {
+      // Long run (key session)
+      queue.push({ ...generateRunSession('long_run', zones, weeklyKm, profile.longestRun, level), priority: 'key', category: 'run' });
+
+      if (isBasePhase) {
+        // Base phase: easy runs + strides only
+        queue.push({ ...generateRunSession('easy_strides', zones, weeklyKm, profile.longestRun, level), priority: 'supporting', category: 'run' });
+        queue.push({ ...generateRunSession('easy', zones, weeklyKm, profile.longestRun, level), priority: 'optional', category: 'run' });
+      } else if (isCutback) {
+        // Cutback: reduce quality
+        queue.push({ ...generateRunSession('easy_strides', zones, weeklyKm, profile.longestRun, level), priority: 'supporting', category: 'run' });
+        queue.push({ ...generateRunSession('easy', zones, weeklyKm, profile.longestRun, level), priority: 'optional', category: 'run' });
+      } else {
+        // Normal: 1-2 quality sessions
+        const qualitySessions = ['tempo', 'vo2max', 'cruise_intervals', 'hill_repeats', 'race_pace'];
+        const quality1 = qualitySessions[(weekNum) % qualitySessions.length];
+        queue.push({ ...generateRunSession(quality1, zones, weeklyKm, profile.longestRun, level), priority: 'key', category: 'run' });
+
+        if (profile.trainDays >= 5 && level !== 'beginner') {
+          const quality2Opts = qualitySessions.filter(s => s !== quality1);
+          const quality2 = quality2Opts[(weekNum) % quality2Opts.length];
+          queue.push({ ...generateRunSession(quality2, zones, weeklyKm, profile.longestRun, level), priority: 'supporting', category: 'run' });
+        }
+
+        queue.push({ ...generateRunSession('easy', zones, weeklyKm, profile.longestRun, level), priority: 'optional', category: 'run' });
+        if (profile.trainDays >= 5) {
+          queue.push({ ...generateRunSession('recovery', zones, weeklyKm, profile.longestRun, level), priority: 'optional', category: 'run' });
+        }
+      }
+    }
+
+    if (hasGym) {
+      const split = profile.resolvedSplit;
+      if (isBasePhase && profile.gymLevel === 'beginner') {
+        // Intro phase: full body, lighter
+        queue.push({ ...generateGymSession('full_body', profile), priority: 'key', category: 'gym' });
+        queue.push({ ...generateGymSession('full_body', profile), priority: 'supporting', category: 'gym' });
+      } else if (split === 'full_body') {
+        queue.push({ ...generateGymSession('full_body', profile), priority: 'key', category: 'gym' });
+        queue.push({ ...generateGymSession('full_body', profile), priority: 'supporting', category: 'gym' });
+        if (profile.trainDays >= 5) queue.push({ ...generateGymSession('full_body', profile), priority: 'optional', category: 'gym' });
+      } else if (split === 'upper_lower') {
+        queue.push({ ...generateGymSession('upper', profile), priority: 'key', category: 'gym' });
+        queue.push({ ...generateGymSession('lower', profile), priority: 'key', category: 'gym' });
+        queue.push({ ...generateGymSession('upper', profile), priority: 'supporting', category: 'gym' });
+        queue.push({ ...generateGymSession('lower', profile), priority: 'supporting', category: 'gym' });
+      } else if (split === 'push_pull_legs') {
+        queue.push({ ...generateGymSession('push', profile), priority: 'key', category: 'gym' });
+        queue.push({ ...generateGymSession('pull', profile), priority: 'key', category: 'gym' });
+        queue.push({ ...generateGymSession('legs', profile), priority: 'key', category: 'gym' });
+        if (profile.trainDays >= 5) {
+          queue.push({ ...generateGymSession('push', profile), priority: 'supporting', category: 'gym' });
+          queue.push({ ...generateGymSession('pull', profile), priority: 'supporting', category: 'gym' });
+        }
+      }
+
+      // Runner strength
+      if (hasRunning) {
+        queue.push({ ...generateGymSession(null, profile, true), priority: 'supporting', category: 'gym' });
+      }
+    }
+
+    // Sports
+    sports.forEach(sport => {
+      const drills = SPORT_DRILLS[sport];
+      if (drills) {
+        const selected = drills.slice(0, 3);
+        queue.push({
+          title: `⚽ ${sport.charAt(0).toUpperCase() + sport.slice(1)} Session`,
+          type: 'sport',
+          sport: sport,
+          drills: selected,
+          duration: selected.reduce((s, d) => s + d.duration, 0),
+          priority: 'supporting',
+          category: 'sport',
+          why: `Sport-specific skill work and conditioning for ${sport}. Scheduled away from hard leg/run days when possible.`
+        });
+      }
+    });
+
+    // Custom sports
+    customSports.forEach(sport => {
+      queue.push({
+        title: `🏆 ${sport}`,
+        type: 'sport',
+        sport: sport,
+        drills: [{ name: `${sport} practice`, duration: 45, intensity: 'moderate' }],
+        duration: 45,
+        priority: 'optional',
+        category: 'sport',
+        why: `Custom activity: ${sport}. Adjust duration and intensity based on how you feel.`
+      });
+    });
+
+    // Sort: key > supporting > optional
+    const priorityOrder = { key: 0, supporting: 1, optional: 2 };
+    queue.sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]);
+
+    return queue;
+  }
+
+  function assignSessions(week, freeSlots, sessionQueue, profile) {
+    const assigned = new Map(); // day -> sessions
+    let usedSlots = new Set();
+    const dayIndex = d => DAYS.indexOf(d);
+
+    // Track what's been assigned
+    function getDayType(day) {
+      if (week.days[day]) return week.days[day].type;
+      if (assigned.has(day)) return assigned.get(day).map(s => s.category).join('+');
+      return null;
+    }
+
+    function isHardSession(session) {
+      if (session.category === 'run' && session.zone && session.zone !== 'easy') return true;
+      if (session.subtype === 'lower' || session.subtype === 'legs') return true;
+      return session.priority === 'key';
+    }
+
+    function canPlaceHere(day, session) {
+      if (usedSlots.has(day)) return false;
+      if (!freeSlots.includes(day)) return false;
+
+      const di = dayIndex(day);
+      const prevDay = DAYS[(di - 1 + 7) % 7];
+      const nextDay = DAYS[(di + 1) % 7];
+
+      // Don't place hard sessions back-to-back
+      if (isHardSession(session)) {
+        const prevDayData = week.days[prevDay] || (assigned.has(prevDay) ? { sessions: assigned.get(prevDay) } : null);
+        if (prevDayData && prevDayData.sessions && prevDayData.sessions.some(s => isHardSession(s))) return false;
+      }
+
+      // Don't place heavy legs before a quality run
+      if (session.category === 'gym' && (session.subtype === 'lower' || session.subtype === 'legs')) {
+        // Check if next day has a quality run
+        const nextSessions = assigned.get(nextDay) || (week.days[nextDay]?.sessions);
+        if (nextSessions && nextSessions.some(s => s.category === 'run' && s.zone !== 'easy')) return false;
+      }
+
+      // Don't put quality run after heavy legs
+      if (session.category === 'run' && session.zone && session.zone !== 'easy') {
+        const prevSessions = assigned.get(prevDay) || (week.days[prevDay]?.sessions);
+        if (prevSessions && prevSessions.some(s => s.subtype === 'lower' || s.subtype === 'legs')) return false;
+      }
+
+      return true;
+    }
+
+    // Ensure at least 1 rest day
+    let restDayCount = DAYS.filter(d => week.days[d]?.type === 'rest').length;
+    const needForceRest = restDayCount === 0 && freeSlots.length > 0;
+    if (needForceRest) {
+      // Pick the best rest day (e.g., day after potential hard sessions)
+      const restDay = freeSlots[freeSlots.length - 1]; // default to last available
+      week.days[restDay] = { type: 'rest', sessions: [{ title: '😴 Rest Day', type: 'rest', why: 'Recovery is where adaptation happens. At least 1 full rest day per week is essential.' }] };
+      usedSlots.add(restDay);
+    }
+
+    // Assign sessions
+    for (const session of sessionQueue) {
+      let placed = false;
+      for (const day of freeSlots) {
+        if (canPlaceHere(day, session)) {
+          if (!assigned.has(day)) assigned.set(day, []);
+          assigned.get(day).push(session);
+          usedSlots.add(day);
+          placed = true;
+          break;
+        }
+      }
+      // If not placed, try to double-up on a day that already has a compatible session
+      if (!placed) {
+        for (const day of freeSlots) {
+          if (assigned.has(day) && assigned.get(day).length < 2) {
+            const existing = assigned.get(day)[0];
+            // Only combine run + gym (not two runs or two gyms)
+            if (existing.category !== session.category && session.category !== 'sport') {
+              assigned.get(day).push(session);
+              placed = true;
+              break;
+            }
+          }
+        }
+      }
+    }
+
+    // Apply assigned to week
+    for (const [day, sessions] of assigned) {
+      const categories = sessions.map(s => s.category);
+      let type = sessions[0].category;
+      if (categories.includes('run') && categories.includes('gym')) type = 'runandgym';
+      else if (categories.includes('sport')) type = 'sport';
+
+      week.days[day] = { type, sessions };
+    }
+  }
+
+  // ==========================================
+  // RENDERING
+  // ==========================================
+  
+  function switchTab(tab) {
+    if (!document.startViewTransition) { _switchTab(tab); return; }
+    document.startViewTransition(() => _switchTab(tab));
+  }
+  function _switchTab(tab) {
+
+    $$('.screen').forEach(s => s.classList.remove('active'));
+    $$('.nav-btn').forEach(b => b.classList.remove('active'));
+    $(`screen-${tab}`).classList.add('active');
+    document.querySelector(`.nav-btn[data-tab="${tab}"]`).classList.add('active');
+    if (tab === 'today') renderToday();
+    else if (tab === 'week') renderWeek();
+    else if (tab === 'progress') renderProgress();
+    else if (tab === 'plan') renderPlan();
+    else if (tab === 'profile') renderProfile();
+  }
+
+  // ---- TODAY SCREEN ----
+  function renderToday() {
+    const now = today();
+    const hour = now.getHours();
+    let greeting = 'Good morning ☀️';
+    if (hour >= 12 && hour < 17) greeting = 'Good afternoon 👋';
+    else if (hour >= 17) greeting = 'Good evening 🌙';
+    $('todayGreeting').textContent = greeting;
+    $('todayDate').textContent = formatDate(now);
+
+    // Calculate streak
+    const streak = calculateStreak();
+    if (streak > 0) {
+      $('streakBadge').style.display = 'inline-flex';
+      $('streakCount').textContent = streak;
+    }
+
+    // Check for missed sessions
+    checkMissedSessions();
+
+    // Get today's session
+    const dayIdx = dayOfWeekIndex(now);
+    const dayKey = DAYS[dayIdx];
+    const weekIdx = getCurrentWeekIndex();
+    const content = $('todayContent');
+
+    if (!state.plan || !state.plan.weeks[weekIdx]) {
+      content.innerHTML = `<div class="empty-state"><div class="icon">📋</div><div class="title">No Plan Yet</div><div class="desc">Complete your profile to generate a training plan.</div></div>`;
+      return;
+    }
+
+    const dayData = state.plan.weeks[weekIdx].days[dayKey];
+    const todayLog = getLog(dateKey(now));
+
+    let html = '';
+
+    // Week info bar
+    const week = state.plan.weeks[weekIdx];
+    html += `<div class="card mb-4" style="background:linear-gradient(135deg,rgba(var(--accent-rgb),0.08),rgba(var(--accent2-rgb),0.08));">
+      <div class="flex justify-between items-center">
+        <div>
+          <div class="text-sm font-bold">Week ${week.weekNum}${week.isCutback ? ' (Cutback)' : ''}${week.isBasePhase ? ' (Base Phase)' : ''}</div>
+          <div class="text-xs text-muted">Target: ${week.weeklyKm}km running</div>
+        </div>
+        <div class="badge ${week.isCutback ? 'badge-warn' : 'badge-accent'}">${week.isCutback ? '📉 Recovery' : '📈 Build'}</div>
+      </div>
+    </div>`;
+
+    if (!dayData || dayData.type === 'rest') {
+      html += `<div class="card text-center" style="padding:var(--s8);">
+        <div style="font-size:3rem;margin-bottom:var(--s4);">😴</div>
+        <div class="text-xl font-bold mb-2">Rest Day</div>
+        <div class="text-muted text-sm">Recovery is where adaptation happens. Hydrate, eat well, and sleep.</div>
+        <div class="divider"></div>
+        <div class="text-sm text-dim">💡 Consider: foam rolling, light stretching, or a 15-minute walk.</div>
+      </div>`;
+      // Weight log
+      
+      content.innerHTML = html;
+      return;
+    }
+
+    if (todayLog && todayLog.status === 'done') {
+      html += `<div class="card mb-4" style="border-color:var(--accent3);"><div class="flex items-center gap-3"><span style="font-size:2rem;">✅</span><div><div class="font-bold text-success">Session Complete!</div><div class="text-sm text-muted">Great work today. Recovery starts now.</div></div></div></div>`;
+    }
+
+    // Session cards
+    dayData.sessions.forEach((session, si) => {
+      html += renderSessionCard(session, si, todayLog, dayKey, weekIdx);
+    });
+
+    // Action buttons
+    if (!todayLog || todayLog.status === 'pending') {
+      html += `<div class="flex gap-3 mt-4">
+        <button class="btn btn-primary btn-block" onclick="FP.showReadiness()">⚡ Start Session</button>
+      </div>
+      <div class="flex gap-3 mt-3">
+        <button class="btn btn-success" style="flex:1;" onclick="FP.logSession('done')">✅ Done</button>
+        <button class="btn btn-secondary" style="flex:1;" onclick="FP.logSession('partial')">🔶 Partly Done</button>
+        <button class="btn btn-danger" style="flex:1;" onclick="FP.logSession('skipped')">⏭️ Skip</button>
+      </div>`;
+    }
+
+
+    content.innerHTML = html;
+  }
+
+  function renderSessionCard(session, idx, todayLog, dayKey, weekIdx, isPreview = false) {
+    let html = `<div class="card mb-3">`;
+    html += `<div class="card-header"><span class="icon">${session.title.split(' ')[0]}</span>${session.title.replace(/^[^\s]+\s/, '')}</div>`;
+
+    if (session.type === 'run' || (session.warmup && session.category === 'run')) {
+      // Run session
+      if (session.warmup) html += `<div class="session-block"><div class="session-block-title">🔥 Warm-up</div><div class="text-sm">${session.warmup}</div></div>`;
+      if (session.main) html += `<div class="session-block"><div class="session-block-title">🏃 Main Set</div><div class="text-sm">${session.main}</div></div>`;
+      if (session.cooldown) html += `<div class="session-block"><div class="session-block-title">🧊 Cool-down</div><div class="text-sm">${session.cooldown}</div></div>`;
+      if (session.distance) html += `<div class="flex gap-3 mt-2"><span class="badge badge-accent">📏 ${session.distance}km</span><span class="pace-zone zone-${session.zone || 'easy'}">${(session.zone || 'easy').toUpperCase()}</span></div>`;
+
+      // Log button for run
+      if (!isPreview && (!todayLog || todayLog.status === 'pending')) {
+        html += `<button class="btn btn-outline btn-sm btn-block mt-3" onclick="FP.showRunLog(${weekIdx},'${dayKey}',${idx})">📝 Log Run Details</button>`;
+      }
+    } else if (session.type === 'gym') {
+      // Gym session
+      if (session.warmup) html += `<div class="session-block"><div class="session-block-title">🔥 Warm-up</div><div class="text-sm">${session.warmup}</div></div>`;
+
+      if (session.exercises && session.exercises.length > 0) {
+        html += `<div class="session-block"><div class="session-block-title">💪 Exercises</div>`;
+        session.exercises.forEach((ex, ei) => {
+          const ytSearch = `https://www.youtube.com/results?search_query=how+to+${encodeURIComponent(ex.name)}+form`;
+          html += `<div class="exercise-row">
+            <div style="flex:1;">
+              <div class="exercise-name">${ex.name}</div>
+              <div class="exercise-cue">💡 ${ex.cue}</div>
+              <div class="exercise-meta">
+                <span>${ex.prescription}</span>
+                <span style="cursor:pointer; color:var(--accent); border-bottom:1px dashed var(--accent);" onclick="FP.startRestTimer(parseInt('${ex.rest}') > 10 ? parseInt('${ex.rest}') : (parseInt('${ex.rest}') || 1) * 60)">⏱️ Rest: ${ex.rest}</span>
+                <span>${ex.rpe}</span>
+                <span>${ex.muscle}</span>
+              </div>
+              <div class="flex gap-2 mt-2">
+                <a href="${ytSearch}" target="_blank" class="btn btn-sm btn-outline" style="padding:4px 10px;font-size:0.6875rem;">📹 How To</a>
+                ${!isPreview ? `<button class="btn btn-sm btn-secondary" style="padding:4px 10px;font-size:0.6875rem;" onclick="FP.showSwapExercise(${weekIdx},'${dayKey}',${idx},${ei})">🔄 Swap</button>` : ''}
+                ${!isPreview && ['Barbell Bench Press', 'Barbell Squat', 'Barbell Deadlift', 'Overhead Press'].includes(ex.name) ? `<div style="display:flex;align-items:center;gap:5px;margin-left:auto;"><input type="number" id="rm_${weekIdx}_${dayKey}_${ei}" placeholder="kg" style="width:60px;padding:4px;font-size:0.75rem;" title="Log max weight lifted for this exercise"><button class="btn btn-sm btn-accent" style="padding:4px 8px;font-size:0.6875rem;" onclick="FP.log1RM('${ex.name}', $('rm_${weekIdx}_${dayKey}_${ei}').value, '${ex.reps}')">Save</button></div>` : ''}
+              </div>
+            </div>
+          </div>`;
+        });
+        html += `</div>`;
+      }
+
+      if (session.cooldown) html += `<div class="session-block"><div class="session-block-title">🧊 Cool-down</div><div class="text-sm">${session.cooldown}</div></div>`;
+
+      // Log button for gym
+      if (!isPreview && (!todayLog || todayLog.status === 'pending')) {
+        html += `<button class="btn btn-outline btn-sm btn-block mt-3" onclick="FP.showGymLog(${weekIdx},'${dayKey}',${idx})">📝 Log Gym Details</button>`;
+      }
+    } else if (session.type === 'sport' || session.category === 'sport') {
+      // Sport session
+      if (session.drills) {
+        session.drills.forEach(drill => {
+          html += `<div class="flex justify-between items-center" style="padding:var(--s2) 0;border-bottom:1px solid var(--border);">
+            <div class="text-sm">${drill.name}</div>
+            <div class="flex gap-2"><span class="badge badge-${drill.intensity === 'high' ? 'danger' : drill.intensity === 'moderate' ? 'warn' : 'accent'}">${drill.duration}min</span></div>
+          </div>`;
+        });
+      }
+      if (session.duration) html += `<div class="badge badge-accent mt-2">⏱️ ${session.duration} min total</div>`;
+    }
+
+    if (session.why) html += `<div class="day-why">💡 ${session.why}</div>`;
+
+    html += `</div>`;
+    return html;
+  }
+
+  
+  // ---- WEEK SCREEN ----
+  function renderWeek() {
+    const weekIdx = getCurrentWeekIndex() + state.weekOffset;
+    if (!state.plan || !state.plan.weeks[weekIdx]) {
+      $('weekContent').innerHTML = `<div class="empty-state"><div class="icon">📅</div><div class="title">No data for this week</div></div>`;
+      return;
+    }
+    const week = state.plan.weeks[weekIdx];
+    $('weekTitle').textContent = `Week ${week.weekNum}${week.isCutback ? ' (Cutback)' : ''}${week.isBasePhase ? ' (Base)' : ''}`;
+
+    let html = `<div class="card mb-4" style="background:linear-gradient(135deg,rgba(var(--accent-rgb),0.06),rgba(var(--accent2-rgb),0.06));">
+      <div class="flex justify-between items-center">
+        <div class="text-sm text-muted">Weekly Km Target</div>
+        <div class="font-bold text-accent">${week.weeklyKm} km</div>
+      </div>
+    </div>`;
+
+    const todayDayKey = DAYS[dayOfWeekIndex(today())];
+    const todayWeekIdx = getCurrentWeekIndex();
+
+    DAYS.forEach(day => {
+      const d = week.days[day];
+      if (!d) return;
+      const isToday = (weekIdx === todayWeekIdx && day === todayDayKey);
+      const log = getLogForWeekDay(weekIdx, day);
+      const statusClass = log ? (log.status === 'done' ? 'completed' : log.status === 'skipped' ? 'skipped' : '') : '';
+
+      const typeMap = { run: 'type-run', gym: 'type-gym', sport: 'type-sport', rest: 'type-rest', runandgym: 'type-runandgym', recovery: 'type-recovery' };
+
+      html += `<div class="day-card ${isToday ? 'today' : ''} ${statusClass}" onclick="FP.expandDayCard(this)" style="cursor:pointer;">
+        <div class="day-card-header">
+          <div class="day-name">${DAY_NAMES[day]}${isToday ? ' (Today)' : ''}</div>
+          <span class="day-type ${typeMap[d.type] || 'type-rest'}">${d.type.replace('andgym', ' + Gym').toUpperCase()}</span>
+        </div>
+        <div class="day-summary">
+          ${d.sessions ? d.sessions.map(s => `<div class="session-title">${s.title}</div>`).join('') : ''}
+          ${log ? `<div class="badge mt-2 ${log.status === 'done' ? 'badge-success' : log.status === 'skipped' ? 'badge-danger' : 'badge-warn'}">${log.status === 'done' ? '✅ Completed' : log.status === 'skipped' ? '⏭️ Skipped' : '🔶 Partial'}</div>` : ''}
+        </div>
+        <div class="day-detail" style="display:none; margin-top:var(--s3); padding-top:var(--s3); border-top:1px solid var(--border);" onclick="event.stopPropagation()">
+          ${d.sessions ? d.sessions.map((s, si) => renderSessionCard(s, si, log, day, weekIdx, true)).join('') : ''}
+        </div>
+        ${d.sessions && d.sessions[0]?.why ? `<div class="day-why" style="margin-top:var(--s2);">💡 ${d.sessions[0].why}</div>` : ''}
+      </div>`;
+    });
+
+    $('weekContent').innerHTML = html;
+  }
+
+  function prevWeek() { if (getCurrentWeekIndex() + state.weekOffset > 0) { state.weekOffset--; renderWeek(); } }
+  function nextWeek() { if (state.plan && getCurrentWeekIndex() + state.weekOffset < state.plan.totalWeeks - 1) { state.weekOffset++; renderWeek(); } }
+
+  // ---- PROGRESS SCREEN ----
+  function renderProgress() {
+    const content = $('progressContent');
+    if (!state.plan) { content.innerHTML = '<div class="empty-state"><div class="icon">📊</div><div class="title">No data yet</div><div class="desc">Complete some sessions to see your progress.</div></div>'; return; }
+
+    const logs = state.logs || [];
+    const doneLogs = logs.filter(l => l.status === 'done');
+    const totalSessions = logs.length;
+    const adherence = totalSessions > 0 ? Math.round((doneLogs.length / totalSessions) * 100) : 0;
+    const totalKm = round1(doneLogs.reduce((s, l) => s + (l.runDistance || 0), 0));
+    const totalVolume = Math.round(doneLogs.reduce((s, l) => s + (l.liftingVolume || 0), 0));
+    const streak = calculateStreak();
+
+    let html = `<div class="stats-grid">
+      <div class="stat-card"><div class="stat-value">${streak}</div><div class="stat-label">Day Streak</div></div>
+      <div class="stat-card"><div class="stat-value">${adherence}%</div><div class="stat-label">Adherence</div></div>
+      <div class="stat-card"><div class="stat-value">${totalKm}</div><div class="stat-label">Total KM</div></div>
+      <div class="stat-card"><div class="stat-value">${totalVolume > 1000 ? round1(totalVolume/1000)+'k' : totalVolume}</div><div class="stat-label">Lifting Vol (kg)</div></div>
+    </div>`;
+
+    // Personal Bests
+    html += `<div class="card mb-4">
+      <div class="card-header"><span class="icon">🏆</span>Personal Bests</div>
+      <div class="stats-grid" style="margin-bottom:0;">
+        <div class="stat-card"><div class="stat-value">${state.personalBests.fastest1k || '—'}</div><div class="stat-label">Fastest 1K</div></div>
+        <div class="stat-card"><div class="stat-value">${state.personalBests.fastest5k || '—'}</div><div class="stat-label">Fastest 5K</div></div>
+        <div class="stat-card"><div class="stat-value">${state.personalBests.fastest10k || '—'}</div><div class="stat-label">Fastest 10K</div></div>
+        <div class="stat-card"><div class="stat-value">${Object.keys(state.personalBests.estimated1RMs).length > 0 ? '✅' : '—'}</div><div class="stat-label">Est. 1RMs</div></div>
+      </div>
+    </div>`;
+
+    // MUSCLE HEATMAP
+    let barsHTML = '';
+    const muscleCounts = { 'Chest': 0, 'Back': 0, 'Legs': 0, 'Shoulders': 0, 'Arms': 0 };
+    for(let i=0; i<7; i++) {
+      let d = new Date(); d.setDate(d.getDate() - i);
+      let log = logs.find(l => l.dateKey === dateKey(d) && l.status === 'done');
+      if(log && log.gymDetails && log.gymDetails.exercises) {
+        log.gymDetails.exercises.forEach(ex => {
+          if(ex.muscle.includes('Chest')) muscleCounts['Chest']++;
+          if(ex.muscle.includes('Back') || ex.muscle.includes('Lats')) muscleCounts['Back']++;
+          if(ex.muscle.includes('Quads') || ex.muscle.includes('Hamstrings') || ex.muscle.includes('Calves')) muscleCounts['Legs']++;
+          if(ex.muscle.includes('Shoulders') || ex.muscle.includes('Delts')) muscleCounts['Shoulders']++;
+          if(ex.muscle.includes('Biceps') || ex.muscle.includes('Triceps')) muscleCounts['Arms']++;
+        });
+      }
+    }
+    for(let [m, count] of Object.entries(muscleCounts)) {
+      let intensity = Math.min(100, count * 20); // 5 exercises = 100%
+      let color = intensity > 80 ? 'var(--danger)' : intensity > 40 ? 'var(--warn)' : 'var(--accent)';
+      barsHTML += `<div style="margin-bottom:8px;">
+        <div style="display:flex;justify-content:space-between;font-size:0.75rem;margin-bottom:2px;"><span>${m}</span><span>${intensity}%</span></div>
+        <div class="xp-bar-container" style="height:4px;margin-top:0;background:var(--bg4);border-radius:2px;"><div class="xp-bar-fill" style="width:${intensity}%;height:100%;background:${color};border-radius:2px;"></div></div>
+      </div>`;
+    }
+
+    html += `<div class="card mb-4 tilt-card" style="box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);">
+      <div class="card-header" style="color: var(--accent);"><span class="icon">🧬</span>Muscle Fatigue & Activation</div>
+      <div style="display:flex; justify-content:space-between; gap:20px; align-items:center;">
+        <svg viewBox="0 0 100 200" style="width:120px; height:auto; filter:drop-shadow(0 0 10px rgba(var(--accent-rgb),0.3)); flex-shrink:0;">
+          <!-- Simple abstract body -->
+          <circle cx="50" cy="20" r="12" fill="var(--bg4)"/>
+          <path d="M30 40 L70 40 L80 90 L70 95 L65 140 L55 145 L50 100 L45 145 L35 140 L30 95 L20 90 Z" fill="var(--bg4)"/>
+          <!-- Chest -->
+          <path id="svg-Chest" d="M35 45 L65 45 L65 65 L35 65 Z" fill="transparent" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
+          <!-- Back/Lats -->
+          <path id="svg-Back" d="M25 45 L35 45 L35 90 L25 80 Z" fill="transparent" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
+          <path id="svg-Back2" d="M65 45 L75 45 L75 80 L65 90 Z" fill="transparent" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
+          <!-- Legs -->
+          <path id="svg-Legs" d="M35 95 L45 95 L45 145 L35 140 Z" fill="transparent" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
+          <path id="svg-Legs2" d="M55 95 L65 95 L65 140 L55 145 Z" fill="transparent" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
+        </svg>
+        <div style="flex:1;">
+          ${barsHTML}
+        </div>
+      </div>
+    </div>`;
+
+    // Weekly km chart
+    const weeklyKmData = getWeeklyKmData();
+    if (weeklyKmData.length > 0) {
+      const maxKm = Math.max(...weeklyKmData.map(d => d.actual), 1);
+      html += `<div class="chart-container">
+        <div class="chart-title">📈 Weekly Running Volume</div>
+        <div class="mini-chart">
+          ${weeklyKmData.map(d => `<div class="mini-bar" style="height:${Math.max(8, (d.actual/maxKm)*100)}%" data-val="${d.actual}km / Wk${d.week}"></div>`).join('')}
+        </div>
+      </div>`;
+    }
+
+    // Pace milestones
+    if (state.profile.milestones && state.profile.milestones.length > 0) {
+      html += `<div class="card mb-4">
+        <div class="card-header"><span class="icon">🎯</span>Pace Milestones</div>
+        ${state.profile.milestones.map(m => `<div class="flex justify-between items-center" style="padding:var(--s2) 0;border-bottom:1px solid var(--border);"><span class="text-sm">Week ${m.week}</span><span class="font-bold text-accent">${m.pace}/km</span></div>`).join('')}
+      </div>`;
+      if (state.profile.paceWarning) {
+        html += `<div class="warning-box">⚠️ ${state.profile.paceWarning}</div>`;
+      }
+    }
+
+    // Badges
+    html += `<div class="card mb-4">
+      <div class="card-header"><span class="icon">🏅</span>Badges</div>
+      <div class="badges-grid">
+        ${renderBadges()}
+      </div>
+    </div>`;
+
+    // Estimated 1RMs
+    if (Object.keys(state.personalBests.estimated1RMs).length > 0) {
+      html += `<div class="card mb-4"><div class="card-header"><span class="icon">💪</span>Estimated 1RMs</div>`;
+      for (const [name, rm] of Object.entries(state.personalBests.estimated1RMs)) {
+        html += `<div class="flex justify-between items-center" style="padding:var(--s2) 0;border-bottom:1px solid var(--border);"><span class="text-sm">${name}</span><span class="font-bold text-accent">${rm} kg</span></div>`;
+      }
+      html += `</div>`;
+    }
+
+    content.innerHTML = html;
+
+    // Apply colors to SVG after render
+    setTimeout(() => {
+      for(let [m, count] of Object.entries(muscleCounts)) {
+        let intensity = Math.min(100, count * 20);
+        let color = intensity > 80 ? 'var(--danger)' : intensity > 40 ? 'var(--warn)' : 'var(--accent)';
+        if(intensity > 0) {
+          let svgEl = document.getElementById('svg-' + m);
+          let svgEl2 = document.getElementById('svg-' + m + '2');
+          if(svgEl) svgEl.setAttribute('fill', color);
+          if(svgEl2) svgEl2.setAttribute('fill', color);
+        }
+      }
+    }, 50);
+  }
+
+  function getWeeklyKmData() {
+    const data = [];
+    const weekIdx = getCurrentWeekIndex();
+    for (let w = 0; w <= Math.min(weekIdx, (state.plan?.totalWeeks || 1) - 1); w++) {
+      const weekLogs = (state.logs || []).filter(l => l.weekIdx === w);
+      const actual = round1(weekLogs.reduce((s, l) => s + (l.runDistance || 0), 0));
+      data.push({ week: w + 1, actual });
+    }
+    return data;
+  }
+
+  function renderBadges() {
+    const streak = calculateStreak();
+    const totalKm = round1((state.logs || []).filter(l => l.status === 'done').reduce((s, l) => s + (l.runDistance || 0), 0));
+    const totalSessions = (state.logs || []).filter(l => l.status === 'done').length;
+
+    const badges = [
+      { icon: '🔥', name: 'First Session', unlocked: totalSessions >= 1 },
+      { icon: '⚡', name: '7-Day Streak', unlocked: streak >= 7 },
+      { icon: '🏃', name: '50km Total', unlocked: totalKm >= 50 },
+      { icon: '💯', name: '100km Total', unlocked: totalKm >= 100 },
+      { icon: '🏋️', name: '10 Gym Sessions', unlocked: (state.logs || []).filter(l => l.type === 'gym' && l.status === 'done').length >= 10 },
+      { icon: '🌟', name: '30-Day Streak', unlocked: streak >= 30 },
+      { icon: '🏆', name: '4 Weeks Done', unlocked: getCurrentWeekIndex() >= 4 },
+      { icon: '💎', name: '200km Total', unlocked: totalKm >= 200 },
+      { icon: '👑', name: 'Plan Complete', unlocked: getCurrentWeekIndex() >= (state.plan?.totalWeeks || 999) },
+    ];
+
+    return badges.map(b => `<div class="badge-card ${b.unlocked ? 'confetti-pop' : 'locked'}"><div class="badge-icon">${b.icon}</div><div class="badge-name">${b.name}</div></div>`).join('');
+  }
+
+  // ---- PLAN SCREEN ----
+  function renderPlan() {
+    const content = $('planContent');
+    if (!state.plan) { content.innerHTML = '<div class="empty-state"><div class="icon">📋</div><div class="title">No plan generated</div></div>'; return; }
+
+    let html = `<div class="card mb-4" style="background:linear-gradient(135deg,rgba(var(--accent-rgb),0.08),rgba(var(--accent2-rgb),0.08));">
+      <div class="text-sm text-muted mb-2">Plan Overview</div>
+      <div class="flex justify-between items-center mb-2">
+        <span class="font-bold">${state.plan.totalWeeks} weeks</span>
+        <span class="badge badge-accent">${state.profile.goal.replace('_',' ').toUpperCase()}</span>
+      </div>
+      <div class="flex justify-between items-center text-sm text-muted">
+        <span>Gym: ${state.profile.resolvedSplit.replace('_',' ')}</span>
+        <span>Base KM: ${state.profile.weeklyKm}</span>
+      </div>
+    </div>`;
+
+    // Show each week as expandable
+    state.plan.weeks.forEach((week, wi) => {
+      const isCurrent = wi === getCurrentWeekIndex();
+      html += `<div class="expandable ${isCurrent ? 'open' : ''}" onclick="FP.toggleExpand(this)">
+        <div class="day-card ${isCurrent ? 'today' : ''}" style="margin-bottom:var(--s2);">
+          <div class="flex justify-between items-center">
+            <div class="font-bold">Week ${week.weekNum}${week.isCutback ? ' 📉' : ''}${week.isBasePhase ? ' 🌱' : ''}</div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-muted">${week.weeklyKm}km</span>
+              <span class="expand-icon">▼</span>
+            </div>
+          </div>
+          <div class="expandable-content">
+            <div class="divider"></div>
+            ${DAYS.map(day => {
+              const d = week.days[day];
+              if (!d) return '';
+              return `<div class="flex justify-between items-center" style="padding:4px 0;">
+                <span class="text-sm">${DAY_SHORT[day]}</span>
+                <span class="text-sm text-muted">${d.sessions ? d.sessions.map(s => s.title.replace(/^[^\s]+\s/, '')).join(' + ') : 'Rest'}</span>
+              </div>`;
+            }).join('')}
+          </div>
+        </div>
+      </div>`;
+    });
+
+    content.innerHTML = html;
+  }
+
+  function toggleExpand(el) {
+    el.classList.toggle('open');
+  }
+
+  // ---- PROFILE SCREEN ----
+  function renderProfile() {
+    const p = state.profile;
+    if (!p) return;
+    const content = $('profileContent');
+
+    let html = `<div class="card mb-4">
+      <div class="card-header"><span class="icon">📊</span>Body Stats</div>
+      <div class="stats-grid" style="margin-bottom:0;">
+        <div class="stat-card"><div class="stat-value">${p.age}</div><div class="stat-label">Age</div></div>
+        <div class="stat-card"><div class="stat-value">${p.bmi}</div><div class="stat-label">BMI</div></div>
+        <div class="stat-card"><div class="stat-value">${p.calories}</div><div class="stat-label">Daily Cal</div></div>
+        <div class="stat-card"><div class="stat-value">${p.protein}g</div><div class="stat-label">Protein</div></div>
+      </div>
+    </div>`;
+
+    html += `<div class="card mb-4">
+      <div class="card-header"><span class="icon">🎯</span>Goal & Experience</div>
+      <div class="flex justify-between items-center mb-2"><span class="text-sm text-muted">Goal</span><span class="font-bold">${p.goal.replace(/_/g,' ')}</span></div>
+      <div class="flex justify-between items-center mb-2"><span class="text-sm text-muted">Timeframe</span><span class="font-bold">${p.timeframe} weeks</span></div>
+      <div class="flex justify-between items-center mb-2"><span class="text-sm text-muted">Gym Level</span><span class="font-bold">${p.gymLevel}</span></div>
+      <div class="flex justify-between items-center mb-2"><span class="text-sm text-muted">Run Level</span><span class="font-bold">${p.runLevel}</span></div>
+      <div class="flex justify-between items-center mb-2"><span class="text-sm text-muted">Equipment</span><span class="font-bold">${p.equipment.replace(/_/g,' ')}</span></div>
+      <div class="flex justify-between items-center"><span class="text-sm text-muted">Split</span><span class="font-bold">${p.resolvedSplit.replace(/_/g,' ')}</span></div>
+    </div>`;
+
+    // Pace Zones
+    if (p.paceZones) {
+      html += `<div class="card mb-4">
+        <div class="card-header"><span class="icon">🏃</span>Pace Zones</div>
+        <div class="flex-col gap-2">
+          <div class="flex justify-between items-center"><span class="pace-zone zone-easy">Easy</span><span class="font-bold">${secToPace(p.paceZones.easy.min)} – ${secToPace(p.paceZones.easy.max)}/km</span></div>
+          <div class="flex justify-between items-center"><span class="pace-zone zone-marathon">Marathon</span><span class="font-bold">${secToPace(p.paceZones.marathon.min)} – ${secToPace(p.paceZones.marathon.max)}/km</span></div>
+          <div class="flex justify-between items-center"><span class="pace-zone zone-threshold">Threshold</span><span class="font-bold">${secToPace(p.paceZones.threshold.min)} – ${secToPace(p.paceZones.threshold.max)}/km</span></div>
+          <div class="flex justify-between items-center"><span class="pace-zone zone-interval">Interval</span><span class="font-bold">${secToPace(p.paceZones.interval.min)} – ${secToPace(p.paceZones.interval.max)}/km</span></div>
+          <div class="flex justify-between items-center"><span class="pace-zone zone-rep">Repetition</span><span class="font-bold">${secToPace(p.paceZones.rep.min)} – ${secToPace(p.paceZones.rep.max)}/km</span></div>
+        </div>
+      </div>`;
+    }
+
+    // Actions
+    html += `<div class="card mb-4">
+      <div class="card-header"><span class="icon">⚙️</span>Actions</div>
+      <button class="btn btn-outline btn-block mb-3" onclick="FP.exportData()">📤 Export Backup (JSON)</button>
+      <button class="btn btn-outline btn-block mb-3" onclick="document.getElementById('importFile').click()">📥 Import Backup</button>
+      <input type="file" id="importFile" accept=".json" style="display:none" onchange="FP.importData(event)">
+      <button class="btn btn-secondary btn-block mb-3" onclick="FP.editProfile()">✏️ Edit Profile</button>
+      <button class="btn btn-danger btn-block" onclick="FP.resetAll()">🗑️ Reset Everything</button>
+    </div>`;
+
+    // Theme toggle
+    html += `<div class="card mb-4">
+      <div class="toggle-wrap">
+        <span class="font-bold text-sm">Dark Mode</span>
+        <div class="toggle ${state.theme === 'dark' ? 'on' : ''}" onclick="FP.toggleTheme()"><div class="knob"></div></div>
+      </div>
+    </div>`;
+
+    content.innerHTML = html;
+  }
+
+  // ==========================================
+  // LOGGING SYSTEM
+  // ==========================================
+  function getLog(dk) { return (state.logs || []).find(l => l.dateKey === dk); }
+  function getLogForWeekDay(weekIdx, day) { return (state.logs || []).find(l => l.weekIdx === weekIdx && l.day === day); }
+
+  function logSession(status) {
+    if (status === 'done') vibrate('success');
+    else vibrate('light');
+    const now = today();
+    const dk = dateKey(now);
+    const dayKey = DAYS[dayOfWeekIndex(now)];
+    const weekIdx = getCurrentWeekIndex();
+
+    // Remove existing log for today
+    state.logs = (state.logs || []).filter(l => l.dateKey !== dk);
+
+    const log = {
+      dateKey: dk,
+      day: dayKey,
+      weekIdx,
+      status,
+      timestamp: now.toISOString(),
+      runDistance: 0,
+      runTime: 0,
+      runPace: '',
+      runRPE: 0,
+      liftingVolume: 0,
+      sportDuration: 0,
+      type: state.plan.weeks[weekIdx]?.days[dayKey]?.type || 'unknown'
+    };
+
+    state.logs.push(log);
+    save();
+    renderToday();
+
+    if (status === 'done') toast('🎉 Session logged! Great work!');
+    else if (status === 'skipped') {
+      toast('Session skipped');
+      // Trigger rescheduling later
+    }
+    else toast('Session partially logged');
+  }
+
+      state.weightLog.push({ date: dateKey(today()), weight });
+    save();
+    toast(`⚖️ ${weight}kg logged`);
+    input.value = '';
+  }
+
+  // ---- Run Log Modal ----
+  function showRunLog(weekIdx, day, sessionIdx) {
+    const modal = $('logModal');
+    const content = $('logModalContent');
+    content.innerHTML = `
+      <h3 style="font-size:1.125rem;font-weight:800;margin-bottom:var(--s4);">🏃 Log Run</h3>
+      <div class="form-group">
+        <label>Distance</label>
+        <div class="input-group"><input type="number" id="logRunDist" step="0.1" placeholder="5.0" inputmode="decimal"><span class="input-suffix">km</span></div>
+      </div>
+      <div class="form-group">
+        <label>Time</label>
+        <div class="form-row">
+          <div class="input-group"><input type="number" id="logRunMin" placeholder="30" inputmode="numeric"><span class="input-suffix">min</span></div>
+          <div class="input-group"><input type="number" id="logRunSec" placeholder="00" inputmode="numeric"><span class="input-suffix">sec</span></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Average Pace (auto-calculated)</label>
+        <div id="logRunPaceCalc" class="text-lg font-bold text-accent">—</div>
+      </div>
+      <div class="slider-group">
+        <label>RPE (Effort) <span id="logRunRPEVal">5</span>/10</label>
+        <input type="range" min="1" max="10" value="5" id="logRunRPE" oninput="document.getElementById('logRunRPEVal').textContent=this.value">
+      </div>
+      <button class="btn btn-success btn-block mt-4" onclick="FP.submitRunLog(${weekIdx},'${day}',${sessionIdx})">✅ Save Run</button>
+      <button class="btn btn-secondary btn-block mt-2" onclick="FP.closeLogModal()">Cancel</button>
+    `;
+    modal.classList.add('show');
+
+    // Auto-calculate pace
+    const calcPace = () => {
+      const dist = parseFloat($('logRunDist')?.value);
+      const min = parseInt($('logRunMin')?.value) || 0;
+      const sec = parseInt($('logRunSec')?.value) || 0;
+      const totalSec = min * 60 + sec;
+      if (dist > 0 && totalSec > 0) {
+        $('logRunPaceCalc').textContent = secToPace(totalSec / dist) + '/km';
+      }
+    };
+    setTimeout(() => {
+      $('logRunDist')?.addEventListener('input', calcPace);
+      $('logRunMin')?.addEventListener('input', calcPace);
+      $('logRunSec')?.addEventListener('input', calcPace);
+    }, 100);
+  }
+
+  function submitRunLog(weekIdx, day, sessionIdx) {
+    const dist = parseFloat($('logRunDist').value) || 0;
+    const min = parseInt($('logRunMin').value) || 0;
+    const sec = parseInt($('logRunSec').value) || 0;
+    const totalSec = min * 60 + sec;
+    const rpe = parseInt($('logRunRPE').value) || 5;
+    const pace = dist > 0 && totalSec > 0 ? secToPace(totalSec / dist) : '';
+
+    const dk = dateKey(today());
+    let log = getLog(dk);
+    if (!log) {
+      log = { dateKey: dk, day, weekIdx, status: 'done', timestamp: new Date().toISOString(), type: 'run', runDistance: 0, runTime: 0, runPace: '', runRPE: 0, liftingVolume: 0, sportDuration: 0 };
+      state.logs.push(log);
+    }
+    log.runDistance = dist;
+    log.runTime = totalSec;
+    log.runPace = pace;
+    log.runRPE = rpe;
+    log.status = 'done';
+
+    // Update personal bests
+    if (dist >= 1 && totalSec > 0) {
+      const pacePerKm = totalSec / dist;
+      if (dist >= 1) updatePB('fastest1k', pacePerKm, dist);
+      if (dist >= 5) updatePB('fastest5k', pacePerKm * 5, dist);
+      if (dist >= 10) updatePB('fastest10k', pacePerKm * 10, dist);
+    }
+
+    // Auto-progression check for running
+    autoProgressRun(log, weekIdx, day, sessionIdx);
+
+    save();
+    closeLogModal();
+    renderToday();
+    toast('🏃 Run logged!');
+  }
+
+  function updatePB(key, timeSec, dist) {
+    const current = state.personalBests[key];
+    const formatted = secToPace(timeSec);
+    if (!current || paceToSec(formatted) < paceToSec(current)) {
+      state.personalBests[key] = formatted;
+    }
+  }
+
+  // ---- Gym Log Modal ----
+  function showGymLog(weekIdx, day, sessionIdx) {
+    const modal = $('logModal');
+    const content = $('logModalContent');
+    const session = state.plan.weeks[weekIdx]?.days[day]?.sessions[sessionIdx];
+    if (!session || !session.exercises) { toast('No gym session found'); return; }
+
+    let html = `<h3 style="font-size:1.125rem;font-weight:800;margin-bottom:var(--s4);">🏋️ Log Gym Session</h3>`;
+
+    session.exercises.forEach((ex, ei) => {
+      const prescSets = parseInt(ex.prescription) || 3;
+      html += `<div class="session-block">
+        <div class="session-block-title">${ex.name}</div>
+        <table class="set-table">
+          <thead><tr><th>Set</th><th>Weight (kg)</th><th>Reps</th><th>RPE</th></tr></thead>
+          <tbody>`;
+      for (let si = 0; si < prescSets; si++) {
+        html += `<tr>
+          <td>${si + 1}</td>
+          <td><input type="number" id="gym_${ei}_${si}_w" inputmode="decimal" step="0.5" placeholder="—"></td>
+          <td><input type="number" id="gym_${ei}_${si}_r" inputmode="numeric" placeholder="—"></td>
+          <td><input type="number" id="gym_${ei}_${si}_rpe" inputmode="numeric" min="1" max="10" placeholder="—"></td>
+        </tr>`;
+      }
+      html += `</tbody></table></div>`;
+    });
+
+    html += `<button class="btn btn-success btn-block mt-4" onclick="FP.submitGymLog(${weekIdx},'${day}',${sessionIdx})">✅ Save Gym Log</button>
+      <button class="btn btn-secondary btn-block mt-2" onclick="FP.closeLogModal()">Cancel</button>`;
+
+    content.innerHTML = html;
+    modal.classList.add('show');
+  }
+
+  function submitGymLog(weekIdx, day, sessionIdx) {
+    const session = state.plan.weeks[weekIdx]?.days[day]?.sessions[sessionIdx];
+    if (!session) return;
+
+    let totalVolume = 0;
+    const exerciseData = [];
+
+    session.exercises.forEach((ex, ei) => {
+      const prescSets = parseInt(ex.prescription) || 3;
+      const sets = [];
+      for (let si = 0; si < prescSets; si++) {
+        const w = parseFloat($(`gym_${ei}_${si}_w`)?.value) || 0;
+        const r = parseInt($(`gym_${ei}_${si}_r`)?.value) || 0;
+        const rpe = parseInt($(`gym_${ei}_${si}_rpe`)?.value) || 0;
+        sets.push({ weight: w, reps: r, rpe });
+        totalVolume += w * r;
+      }
+
+      exerciseData.push({ name: ex.name, key: ex.key, sets });
+
+      // Estimated 1RM (Brzycki) from best set
+      const bestSet = sets.reduce((best, s) => (!best || s.weight * s.reps > best.weight * best.reps) ? s : best, null);
+      if (bestSet && bestSet.weight > 0 && bestSet.reps > 0 && bestSet.reps <= 12) {
+        const e1rm = Math.round(bestSet.weight / (1.0278 - 0.0278 * bestSet.reps));
+        if (!state.personalBests.estimated1RMs[ex.name] || e1rm > state.personalBests.estimated1RMs[ex.name]) {
+          state.personalBests.estimated1RMs[ex.name] = e1rm;
+        }
+      }
+
+      // Double progression auto-advance
+      autoProgressGym(ex, sets, weekIdx, day, sessionIdx, ei);
+    });
+
+    const dk = dateKey(today());
+    let log = getLog(dk);
+    if (!log) {
+      log = { dateKey: dk, day, weekIdx, status: 'done', timestamp: new Date().toISOString(), type: 'gym', runDistance: 0, runTime: 0, runPace: '', runRPE: 0, liftingVolume: 0, sportDuration: 0 };
+      state.logs.push(log);
+    }
+    log.liftingVolume = totalVolume;
+    log.gymData = exerciseData;
+    log.status = 'done';
+
+    save();
+    closeLogModal();
+    renderToday();
+    toast('🏋️ Gym session logged!');
+  }
+
+  // ==========================================
+  // AUTO-PROGRESSION
+  // ==========================================
+  function autoProgressGym(exercise, sets, weekIdx, day, sessionIdx, exerciseIdx) {
+    // Double progression: if all sets hit top of rep range at RPE ≤ 8, increase weight
+    const repRange = exercise.prescription || '3×8-12';
+    const match = repRange.match(/(\d+)[×x](\d+)(?:-(\d+))?/);
+    if (!match) return;
+    const targetSets = parseInt(match[1]);
+    const maxReps = parseInt(match[3] || match[2]);
+
+    const validSets = sets.filter(s => s.weight > 0 && s.reps > 0);
+    if (validSets.length < targetSets) return;
+
+    const allHitTop = validSets.every(s => s.reps >= maxReps && s.rpe <= 8);
+    const failedTwice = validSets.every(s => s.reps < parseInt(match[2]) || s.rpe >= 10);
+
+    if (allHitTop) {
+      // Next time: increase weight by smallest increment (2.5kg barbell, 1kg dumbbell)
+      const increment = exercise.compound ? 2.5 : 1;
+      toast(`📈 ${exercise.name}: Ready to increase weight by ${increment}kg next session!`);
+    } else if (failedTwice) {
+      toast(`📉 ${exercise.name}: Consider dropping weight ~10% and rebuilding.`);
+    }
+  }
+
+  function autoProgressRun(log, weekIdx, day, sessionIdx) {
+    const session = state.plan.weeks[weekIdx]?.days[day]?.sessions[sessionIdx];
+    if (!session || session.category !== 'run') return;
+
+    // If completed tempo/threshold at target pace with RPE ≤ 7, nudge pace faster
+    if (session.zone === 'threshold' && log.runRPE <= 7 && log.runPace) {
+      toast('🏃 Great tempo run! Pace may be nudged faster next week.');
+    } else if (session.zone === 'threshold' && log.runRPE >= 9) {
+      toast('🏃 That was tough. Holding pace for next week.');
+    }
+  }
+
+  // ==========================================
+  // READINESS CHECK
+  // ==========================================
+  function showReadiness() {
+    $('readinessModal').classList.add('show');
+    $('readPain').addEventListener('input', () => {
+      const pain = parseInt($('readPain').value);
+      $('readinessWarning').style.display = pain >= 4 ? 'flex' : 'none';
+    });
+  }
+
+  function closeReadiness() {
+    $('readinessModal').classList.remove('show');
+  }
+
+  function submitReadiness() {
+    const sleep = parseInt($('readSleep').value);
+    const soreness = parseInt($('readSore').value);
+    const energy = parseInt($('readEnergy').value);
+    const pain = parseInt($('readPain').value);
+
+    const readiness = (sleep + (10 - soreness) + energy) / 3; // 0-10 composite
+
+    closeReadiness();
+
+    if (pain >= 4) {
+      // Replace with rest/recovery
+      toast('⚠️ Pain detected — swapping to recovery session. Please listen to your body.');
+      // Modify today's session
+      const now = today();
+      const dayKey = DAYS[dayOfWeekIndex(now)];
+      const weekIdx = getCurrentWeekIndex();
+      if (state.plan.weeks[weekIdx]?.days[dayKey]) {
+        state.plan.weeks[weekIdx].days[dayKey] = {
+          type: 'recovery',
+          sessions: [{
+            title: '🧘 Recovery Session',
+            type: 'recovery',
+            why: 'Pain was reported during readiness check. Prioritizing recovery to prevent injury. Light mobility, foam rolling, or gentle walking only.'
+          }]
+        };
+        save();
+        renderToday();
+      }
+      return;
+    }
+
+    if (readiness < 4) {
+      // Reduce volume by ~25%
+      toast('📉 Low readiness detected — today\'s session will be eased (~25% less volume).');
+    } else {
+      toast('✅ Ready to train! Let\'s go.');
+    }
+  }
+
+  // ==========================================
+  // MISSED SESSION HANDLING
+  // ==========================================
+  function checkMissedSessions() {
+    if (state.planStartDate === dateKey(today())) return; // Ignore on plan creation day
+    const now = today();
+    const yesterday = addDays(now, -1);
+    const yKey = dateKey(yesterday);
+    const yDayKey = DAYS[dayOfWeekIndex(yesterday)];
+    const weekIdx = getCurrentWeekIndex();
+
+    // Check if yesterday was a training day with no log
+    const yesterdayData = state.plan?.weeks[weekIdx]?.days[yDayKey];
+    if (yesterdayData && yesterdayData.type !== 'rest' && !getLog(yKey)) {
+      $('missedSessionName').textContent = `You missed yesterday's ${yesterdayData.sessions?.[0]?.title || 'session'}.`;
+      $('missedModal').classList.add('show');
+    }
+  }
+
+  function selectMissedReason(el) {
+    $$('.reason-btn').forEach(b => b.classList.remove('selected'));
+    el.classList.add('selected');
+    state.missedReason = el.dataset.reason;
+    $('missedSubmitBtn').disabled = false;
+  }
+
+  function submitMissedReason() {
+    const reason = state.missedReason;
+    $('missedModal').classList.remove('show');
+
+    // Log the missed session
+    const yesterday = addDays(today(), -1);
+    const yKey = dateKey(yesterday);
+    const yDayKey = DAYS[dayOfWeekIndex(yesterday)];
+    const weekIdx = getCurrentWeekIndex();
+
+    state.logs.push({
+      dateKey: yKey,
+      day: yDayKey,
+      weekIdx,
+      status: 'skipped',
+      reason,
+      timestamp: new Date().toISOString(),
+      type: state.plan.weeks[weekIdx]?.days[yDayKey]?.type || 'unknown',
+      runDistance: 0, runTime: 0, runPace: '', runRPE: 0, liftingVolume: 0, sportDuration: 0
+    });
+
+    // Reschedule remaining week
+    rescheduleWeek(weekIdx, yDayKey, reason);
+    save();
+    renderToday();
+    toast('📅 Week rescheduled around the missed session.');
+  }
+
+  function rescheduleWeek(weekIdx, missedDay, reason) {
+    const week = state.plan.weeks[weekIdx];
+    if (!week) return;
+
+    const missedSession = week.days[missedDay];
+    if (!missedSession || missedSession.type === 'rest') return;
+
+    const missedDayIdx = DAYS.indexOf(missedDay);
+    const todayIdx = dayOfWeekIndex(today());
+
+    // Determine priority of missed session
+    const isKey = missedSession.sessions?.some(s => s.priority === 'key');
+    const isOptional = missedSession.sessions?.every(s => s.priority === 'optional');
+
+    if (isOptional || reason === 'sick' || reason === 'injured') {
+      // Skip optional sessions; skip everything if sick/injured
+      return;
+    }
+
+    if (isKey) {
+      // Try to find a slot within 2 days
+      for (let offset = 1; offset <= 2; offset++) {
+        const candidateIdx = (missedDayIdx + offset) % 7;
+        const candidateDay = DAYS[candidateIdx];
+
+        if (candidateIdx <= todayIdx - 1) continue; // Don't reschedule into past
+
+        const candidateData = week.days[candidateDay];
+        if (!candidateData) continue;
+
+        // Can swap into a rest day or an optional session
+        if (candidateData.type === 'rest' ||
+            (candidateData.sessions && candidateData.sessions.every(s => s.priority === 'optional'))) {
+
+          // Check scheduling rules: no back-to-back hard sessions
+          const prevDay = DAYS[(candidateIdx - 1 + 7) % 7];
+          const nextDay = DAYS[(candidateIdx + 1) % 7];
+          const prevData = week.days[prevDay];
+          const nextData = week.days[nextDay];
+
+          const prevIsHard = prevData?.sessions?.some(s => s.priority === 'key');
+          const nextIsHard = nextData?.sessions?.some(s => s.priority === 'key');
+
+          if (!prevIsHard && !nextIsHard) {
+            // Move the session
+            week.days[candidateDay] = missedSession;
+            week.days[missedDay] = { type: 'rest', sessions: [{ title: '😴 Rest Day', type: 'rest', why: `Rescheduled: missed session moved to ${DAY_NAMES[candidateDay]}.` }] };
+            return;
+          }
+        }
+      }
+      // If no suitable slot, just drop it
+    }
+  }
+
+  // ==========================================
+  // SWAP EXERCISE
+  // ==========================================
+  function showSwapExercise(weekIdx, day, sessionIdx, exerciseIdx) {
+    const session = state.plan.weeks[weekIdx]?.days[day]?.sessions[sessionIdx];
+    if (!session || !session.exercises) return;
+    const currentEx = session.exercises[exerciseIdx];
+    if (!currentEx) return;
+
+    // Find alternatives with same category/muscle
+    const alternatives = Object.entries(EXERCISES)
+      .filter(([key, ex]) => {
+        if (key === currentEx.key) return false;
+        if (ex.category !== currentEx.category) return false;
+        const avail = getExerciseForEquipment(key, state.profile.equipment);
+        return avail !== null;
+      })
+      .map(([key, ex]) => ({ key, ...ex }));
+
+    const swapList = $('swapList');
+    swapList.innerHTML = alternatives.map(alt =>
+      `<div class="swap-item" onclick="FP.doSwapExercise(${weekIdx},'${day}',${sessionIdx},${exerciseIdx},'${alt.key}')">
+        <div class="swap-item-name">${alt.name}</div>
+        <div class="swap-item-detail">${alt.muscle} • ${alt.compound ? 'Compound' : 'Isolation'}</div>
+      </div>`
+    ).join('');
+
+    $('swapModal').classList.add('show');
+  }
+
+  function doSwapExercise(weekIdx, day, sessionIdx, exerciseIdx, newKey) {
+    const session = state.plan.weeks[weekIdx]?.days[day]?.sessions[sessionIdx];
+    if (!session || !session.exercises) return;
+
+    const newEx = getExerciseForEquipment(newKey, state.profile.equipment);
+    if (!newEx) return;
+
+    const oldEx = session.exercises[exerciseIdx];
+    session.exercises[exerciseIdx] = {
+      ...newEx,
+      prescription: oldEx.prescription,
+      rest: oldEx.rest,
+      rpe: oldEx.rpe
+    };
+
+    save();
+    closeSwapModal();
+    renderToday();
+    toast(`🔄 Swapped to ${newEx.name}`);
+  }
+
+  function closeSwapModal() { $('swapModal').classList.remove('show'); }
+  function closeLogModal() { $('logModal').classList.remove('show'); }
+
+  // ==========================================
+  // HELPERS
+  // ==========================================
+  function getCurrentWeekIndex() {
+    if (!state.plan) return 0;
+    // Calculate based on plan start date
+    const startDate = state.plan.startDate ? new Date(state.plan.startDate) : getMonday(today());
+    if (!state.plan.startDate) {
+      state.plan.startDate = startDate.toISOString();
+      save();
+    }
+    const now = today();
+    const diffMs = now - startDate;
+    const diffWeeks = Math.floor(diffMs / (7 * 24 * 60 * 60 * 1000));
+    return clamp(diffWeeks, 0, state.plan.totalWeeks - 1);
+  }
+
+  function calculateStreak() {
+    let streak = 0;
+    const now = today();
+    for (let i = 0; i < 365; i++) {
+      const d = addDays(now, -i);
+      const dk = dateKey(d);
+      const log = getLog(dk);
+      const dayKey = DAYS[dayOfWeekIndex(d)];
+      const weekIdx = getCurrentWeekIndex() - Math.floor(i / 7);
+      const dayData = state.plan?.weeks[weekIdx]?.days[dayKey];
+
+      if (!dayData || dayData.type === 'rest') {
+        // Rest days don't break streak but don't add
+        if (i === 0) continue; // today
+        continue;
+      }
+      if (log && (log.status === 'done' || log.status === 'partial')) {
+        streak++;
+      } else {
+        break;
+      }
+    }
+    return streak;
+  }
+
+  function expandDayCard(el) {
+    const detail = el.querySelector('.day-detail');
+    if (detail) {
+      detail.style.display = detail.style.display === 'none' ? 'block' : 'none';
+      el.classList.toggle('expanded');
+    }
+  }
+
+  // ==========================================
+  // EXPORT / IMPORT
+  // ==========================================
+  function exportData() {
+    const data = JSON.stringify(state, null, 2);
+    const blob = new Blob([data], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `dooms_fitness_backup_${dateKey(today())}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+    toast('📤 Backup exported!');
+  }
+
+  function importData(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const data = JSON.parse(e.target.result);
+        state = { ...state, ...data };
+        save();
+        toast('📥 Data imported! Refreshing...');
+        setTimeout(() => location.reload(), 1000);
+      } catch(err) {
+        toast('❌ Invalid backup file');
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  // ==========================================
+  // RESET / EDIT
+  // ==========================================
+  function resetAll() {
+    if (confirm('Are you sure? This will delete all your data.')) {
+      try { localStorage.removeItem('doom_fitness_state'); } catch(e) {}
+      location.reload();
+    }
+  }
+
+  function editProfile() {
+    state.setupComplete = false;
+    save();
+    location.reload();
+  }
+
+  function regeneratePlan() {
+    if (confirm('Regenerate your plan? This will reset your weekly schedule but keep your logs.')) {
+      generatePlan();
+      toast('🔄 Plan regenerated!');
+    }
+  }
+
+  // ==========================================
+  // INITIALIZATION
+  // ==========================================
+  function init() {
+    const hasData = load();
+
+    // Apply theme
+    document.documentElement.setAttribute('data-theme', state.theme);
+    document.querySelector('.theme-toggle').textContent = state.theme === 'dark' ? '🌙' : '☀️';
+    document.querySelector('meta[name="theme-color"]').content = state.theme === 'dark' ? '#050508' : '#f0f2f0';
+
+    initWizardDots();
+
+    if (state.setupComplete && state.plan) {
+      $('screen-wizard').classList.remove('active');
+      $('bottomNav').style.display = 'flex';
+      switchTab('today');
+    } else {
+      // Auto-calculate on input
+      ['w-age','w-sex','w-height','w-weight'].forEach(id => {
+        $(id)?.addEventListener('input', updateBodyCalcs);
+      });
+    }
+  }
+
+  // Boot
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  // ==========================================
+  // NEXT-LEVEL FEATURES (Haptics, Timer, 1RM)
+  // ==========================================
+  function vibrate(type = 'light') {
+    if (!navigator.vibrate) return;
+    if (type === 'light') navigator.vibrate(50);
+    if (type === 'heavy') navigator.vibrate([100, 50, 100]);
+    if (type === 'success') navigator.vibrate([50, 50, 50, 50, 100]);
+  }
+
+  let restTimerInterval;
+  function startRestTimer(seconds) {
+    vibrate('light');
+    clearInterval(restTimerInterval);
+    const el = $('restTimer');
+    const clock = $('rtClock');
+    if(el) el.classList.add('active');
+    
+    let remaining = seconds;
+    const update = () => {
+      const m = Math.floor(remaining / 60).toString().padStart(2, '0');
+      const s = (remaining % 60).toString().padStart(2, '0');
+      if(clock) clock.textContent = m + ':' + s;
+      if (remaining <= 0) {
+        clearInterval(restTimerInterval);
+        vibrate('heavy');
+        if(el) el.classList.remove('active');
+      }
+      remaining--;
+    };
+    update();
+    restTimerInterval = setInterval(update, 1000);
+  }
+  function stopRestTimer() {
+    clearInterval(restTimerInterval);
+    const el = $('restTimer');
+    if(el) el.classList.remove('active');
+  }
+
+  function log1RM(exerciseName, weight, repRange) {
+    if(!weight) return;
+    weight = parseFloat(weight);
+    const reps = parseInt(repRange.split('-')[0]) || 8;
+    const estimated1RM = Math.round(weight * 36 / (37 - reps));
+    if(!state.oneRepMax) state.oneRepMax = {};
+    if(!state.oneRepMax[exerciseName] || estimated1RM > state.oneRepMax[exerciseName]) {
+      state.oneRepMax[exerciseName] = estimated1RM;
+      save();
+      toast(`💪 New PR! ${exerciseName} 1RM estimated at ${estimated1RM}kg`);
+      generatePlan(); // Regenerate to apply new weights
+      _switchTab('week');
+    } else {
+      toast(`Logged ${weight}kg.`);
+    }
+  }
+
+  // 3D Tilt Logic
+  document.addEventListener('mousemove', (e) => {
+    document.querySelectorAll('.tilt-card').forEach(card => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -10;
+      const rotateY = ((x - centerX) / centerX) * 10;
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+  });
+  document.addEventListener('mouseleave', () => {
+    document.querySelectorAll('.tilt-card').forEach(card => {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+    });
+  });
+
+  // ==========================================
+  // PUBLIC API
+  // ==========================================
+  return {
+    toggleTheme,
+    switchTab,
+    wizardNext,
+    wizardPrev,
+    selectChip,
+    toggleChip,
+    addCommitment,
+    removeCommitment,
+    _updateCommitment,
+    generatePlan,
+    logSession,
+    showReadiness,
+    closeReadiness,
+    submitReadiness,
+    showRunLog,
+    submitRunLog,
+    showGymLog,
+    submitGymLog,
+    showSwapExercise,
+    doSwapExercise,
+    closeSwapModal,
+    closeLogModal,
+    selectMissedReason,
+    submitMissedReason,
+    exportData, startRestTimer, stopRestTimer, vibrate, log1RM,
+    importData,
+    resetAll,
+    editProfile,
+    regeneratePlan,
+    prevWeek,
+    nextWeek,
+    toggleExpand,
+    expandDayCard,
+  };
+})();
+</script>
+
+  <div id="installPrompt">
+    <span>Install Doom's Fitness App</span>
+    <button class="btn" style="background:#000;color:var(--accent);padding:4px 12px;" id="btnInstall">Install</button>
+  </div>
+  <div id="restTimer">
+    <span>⏳ <span id="rtClock">01:30</span></span>
+    <button class="btn btn-sm btn-outline" onclick="FP.stopRestTimer()" style="padding:4px 10px;border-color:var(--danger);color:var(--danger);">Stop</button>
+  </div>
+</body>
+
+</html>
