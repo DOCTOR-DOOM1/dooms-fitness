@@ -2999,7 +2999,12 @@ const FP = (() => {
     else toast('Session partially logged');
   }
 
-      state.weightLog.push({ date: dateKey(today()), weight });
+  function logBodyWeight() {
+    const input = document.getElementById('bodyWeightInput');
+    if (!input) return;
+    const weight = parseFloat(input.value);
+    if (!weight || weight < 20 || weight > 300) { toast('Enter a valid weight'); return; }
+    state.weightLog.push({ date: dateKey(today()), weight });
     save();
     toast(`⚖️ ${weight}kg logged`);
     input.value = '';
